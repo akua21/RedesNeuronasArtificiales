@@ -18,7 +18,7 @@ def randomize(dataframe):
 
 header = ["longitude","latitude","housing_median_age","total_rooms","total_bedrooms","population","households","median_income","median_house_value"]
 
-with open('california_housing.csv') as file:
+with open('raw/california_housing.csv') as file:
     csvReader = pd.read_csv(file, sep=',', skipinitialspace=True, usecols=header)
 
     for title in header[:-1]:
@@ -39,11 +39,11 @@ with open('california_housing.csv') as file:
     print(testSet)
 
 
-    with open('training_set.csv', 'w') as trainingFile:
+    with open('inputs/training_set.csv', 'w') as trainingFile:
         trainingFile.write(trainingSet.to_csv(index=False))
 
-    with open('validation_set.csv', 'w') as validationFile:
+    with open('inputs/validation_set.csv', 'w') as validationFile:
         validationFile.write(validationSet.to_csv(index=False))
 
-    with open('test_set.csv', 'w') as testFile:
+    with open('inputs/test_set.csv', 'w') as testFile:
         testFile.write(testSet.to_csv(index=False))

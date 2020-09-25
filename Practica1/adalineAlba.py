@@ -71,7 +71,7 @@ while error_v != error_v_init: # Criterio de parada
 
     error_t = error_t / csvReader.shape[0]
 
-    print("error_t ", error_t)
+    # print("error_t ", error_t)
 
     # Evaluar ERROR validación
     with open('datosArtificiales_validation.csv') as file:
