@@ -1,0 +1,146 @@
+\documentclass{uc3mpracticas}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                   Plantilla Prácticas UC3M                               %%%
+%%%                Universidad Carlos III de Madrid                          %%%
+%%%                   Alejandro Valverde Mahou                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Permitir cabeceras y pie de páginas personalizados
+\pagestyle{fancy}
+
+%Path por defecto de las imágenes
+\graphicspath{ {./images/} }
+
+%Declarar formato de encabezado y pie de página de las páginas del documento
+\fancypagestyle{doc}{
+  %Cabecera
+  \headerpr[1]{Problema de Regresión}{}{Redes de Neuronas Artificiales}
+  %Pie de Página
+  \footerpr{}{\textbf{UC3M}}{{\thepage} de \pageref{LastPage}}
+}
+
+%Declarar formato de encabezado y pie del título e indice
+\fancypagestyle{titu}{%
+  %Cabecera
+  \headerpr{}{}{}
+  %Pie de Página
+  \footerpr{}{}{}
+}
+
+
+\appto\frontmatter{\pagestyle{titu}}
+\appto\mainmatter{\pagestyle{doc}}
+
+
+\begin{document}
+  %Comienzo formato título
+  \frontmatter
+
+
+  %Portada 1 (Centrado todo)
+  \centeredtitle{Images/LogoUC3M.png}{Grado en Ingeniería Informática}{Curso 2020/2021}{Redes de Neuronas Artificiales}{Problema de Regresión}{Predicción del precio medio de la vivienda en California}
+
+  \vspace{55mm}
+
+  \authors{Alba Reinders Sánchez}{100383444}{Alejandro Valverde Mahou}{100383383}{}{}{}{}
+
+  \newpage
+
+  %Índice
+  \tableofcontents
+
+  \newpage
+
+  %Comienzo formato documento general
+  \mainmatter
+
+  \section{Introducción}
+
+  El problema a resolver es la \textbf{predicción del precio medio de la vivenda en California}, usando dos modelos diferentes: \textit{Adaline} y \textit{Perceptron Multicapa}.
+
+  \vspace{3mm}
+
+  El \textit{Adaline} es un modelo \textbf{lineal}, mientras que el \textit{Perceptron Multicapa} es un modelo \textbf{no lineal}. El objetivo de esta práctica es realizar una comparativa entre estos dos modelos mediante la experimentación y análisis de los resultados, para averiguar cuál de los dos es capaz de encontrar la solución más cercana a la solución óptima.
+
+  \section{Preparación de Datos}
+
+  Los datos proporcionados son: \textit{longitude}, \textit{latitude}, \textit{housingMedianAge}, \textit{totalRooms}, \textit{totalBedrooms}, \textit{population}, \textit{households}, \textit{medianIncome}, \textit{\textbf{medianHouseValue}}.
+
+  \vspace{3mm}
+
+  La salida de los modelos deberá ser \textit{\textbf{medianHouseValue}} en función del resto de atributos.
+
+  \vspace{2mm}
+
+  El conjunto de ejemplos proporcionados es de \textbf{17000}.
+
+  \subsection{Normalización}
+
+  El primer paso en el preprocesado de los datos es la \textbf{normalización}. Esta técnica consiste en acotar todos los datos en un rango de 0 a 1. Se ha decidido para este problema, normalizar exclusivamente los atributos de entrada, y no la salida.
+
+  \vspace{3mm}
+
+  La normalización de los datos se realiza cuando los distintos atributos de entrada no están en la misma escala, ya que tener atributos con escalas muy diferentes puede dar lugar al cálculo erróneo de los pesos, lo que deriva en modelos ineficaces.
+
+  \vspace{2mm}
+
+  La transformación lineal que se aplica a cada atributo es:
+
+  \begin{center}
+    $$ \mbox{\Large $ atr'_i = \frac{atr_i - \min{(atr)}}{\max{(atr)} - \min{(atr)}} $} $$
+
+  \end{center}
+
+
+
+  \subsection{Aleatorización}
+
+  Para evitar un entrenamiento inadecuado, es necesario otorgar a los modelos una lista de datos desordenados, o con orden aleatorio. De esta forma el modelo no se ajusta a un rango concreto de valores, que podrían darse seguidos si no se organizan aleatoriamente.
+
+  \subsection{Separación en conjuntos de datos}
+
+  Dado que este problema tiene una cantidad suficientemente grande de datos, se puede realizar la división del conjunto de datos en 3 subconjuntos:
+
+  \begin{itemize}
+    \item \textbf{Conjunto de Entrenamiento}:
+
+    Con él se realiza el aprendizaje (ajuste de pesos) del modelo. Es el conjunto más grande, pues tiene el 60\% de los datos (10200 instancias).
+
+    \item \textbf{Conjunto de Test}:
+
+    Se usa para evaluar la precisión y capacidad de generalización del modelo. Este conjunto tiene el 20\% de los datos (3400 instancias).
+
+    \item \textbf{Conjunto de Validación}:
+
+    Se usa para determinar los mejores hiperparámetros del modelo. Este conjunto tiene el 20\% de los datos (3400 instancias).
+
+  \end{itemize}
+
+  \section{Adaline}
+
+    \subsection{Experimentación}
+
+    \subsection{Resultados Obtenidos}
+
+    \subsection{Análisis}
+
+  \section{Perceptron Multicapa}
+
+    \subsection{Experimentación}
+
+    \subsection{Resultados Obtenidos}
+
+    \subsection{Análisis}
+
+  \section{Comparación de Modelos}
+
+  \section{Conclusiones}
+
+
+
+\end{document}
