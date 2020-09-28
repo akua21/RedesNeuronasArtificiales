@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  26 SEP 2020 19:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.23)  26 SEP 2020 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -531,12 +531,12 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: F3DC3D4E8C8D870FA1A8F3E4CBB4A9BC;925.
  ) 
 Here is how much of TeX's memory you used:
- 7542 strings out of 481239
- 112022 string characters out of 5920377
- 399354 words of memory out of 5000000
- 22641 multiletter control sequences out of 15000+600000
+ 7542 strings out of 483121
+ 112022 string characters out of 5964354
+ 393535 words of memory out of 5000000
+ 22398 multiletter control sequences out of 15000+600000
  566798 words of font info for 51 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 40 hyphenation exceptions out of 8191
  42i,11n,49p,798b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
@@ -548,7 +548,7 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on memoria.pdf (4 pages, 111126 bytes).
+Output written on memoria.pdf (4 pages, 111072 bytes).
 PDF statistics:
  153 PDF objects out of 1000 (max. 8388607)
  133 compressed objects within 2 object streams

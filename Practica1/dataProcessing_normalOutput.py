@@ -21,7 +21,10 @@ header = ["longitude","latitude","housing_median_age","total_rooms","total_bedro
 with open('raw/california_housing.csv') as file:
     csvReader = pd.read_csv(file, sep=',', skipinitialspace=True, usecols=header)
 
-    for title in header[:-1]:
+    print("Min value: ", min(csvReader["median_house_value"]))
+    print("Max value: ", max(csvReader["median_house_value"]))
+
+    for title in header:
         csvReader[title] = normalize(csvReader[title])
 
     csvReader = randomize(csvReader)
@@ -35,11 +38,11 @@ with open('raw/california_housing.csv') as file:
     testSet = csvReader.iloc[trainingSize+validationSize:trainingSize+validationSize+testSize].reset_index(drop=True)
 
 
-    with open('inputs/training_set.csv', 'w') as trainingFile:
+    with open('inputs/training_set_norm.csv', 'w') as trainingFile:
         trainingFile.write(trainingSet.to_csv(index=False))
 
-    with open('inputs/validation_set.csv', 'w') as validationFile:
+    with open('inputs/validation_set_norm.csv', 'w') as validationFile:
         validationFile.write(validationSet.to_csv(index=False))
 
-    with open('inputs/test_set.csv', 'w') as testFile:
+    with open('inputs/test_set_norm.csv', 'w') as testFile:
         testFile.write(testSet.to_csv(index=False))
