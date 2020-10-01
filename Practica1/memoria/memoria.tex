@@ -81,7 +81,7 @@
 
   \subsection{Normalización}
 
-  El primer paso en el preprocesado de los datos es la \textbf{normalización}. Esta técnica consiste en acotar todos los datos en un rango de 0 a 1. Se ha decidido para este problema, normalizar exclusivamente los atributos de entrada, y no la salida.
+  El primer paso en el preprocesado de los datos es la \textbf{normalización}. Esta técnica consiste en acotar todos los datos en un rango de 0 a 1. Se ha decidido para este problema, normalizar exclusivamente los atributos de entrada, y no la salida, porque, experimentalmente, resulta en menos error.
 
   \vspace{3mm}
 
@@ -123,9 +123,57 @@
 
   \section{Adaline}
 
+  El lenguaje de programación elegido para el desarrollo del algoritmo \textbf{ADALINE} ha sido \textit{Python}.
+
     \subsection{Experimentación}
 
+    Se ha decidido realizar distintos experimentos, tanto con salida normalizada como con salida no normalizada, con el objetivo de comprobar cuál ofrece mejores resultados. Además, para cada experimento, se han realizado varias pruebas para encontrar la razón o tasa de aprendizaje más adecuada en cada caso.
+
+    \vspace{3mm}
+
+    En lugar de elegir arbitrariamente un número de ciclos para cada experimento, se ha usado un criterio de parada más específico: el aprendizaje termina cuando el error en el conjunto de validación es mayor o igual que en los 4 ciclos anteriores.
+
+    \vspace{3mm}
+
+    Este criterio de parada es eficaz dado que ayuda a determinar automáticamente el momento en el que el algoritmo converge en un valor concreto, o comienza a tener sobreaprendizaje.
+
+    \vspace{3mm}
+
+    Los experimentos consistirán en ejecutar el algoritmo con una tasa de aprendizaje inicial de \textit{0.5}, que se irá ajustando a lo largo de los experimentos hasta alcanzar la tasa que obtenga los resultados más adecuados.
+
     \subsection{Resultados Obtenidos}
+
+      \subsubsection*{Salida Normalizada}
+
+      \textbf{Tabla de resultados obtenidos por experimento:}
+
+      \begin{center}
+        \begin{tabular}{|l|c|c|c|c|}
+          \hline
+                                                  & \textbf{Experimento 1} & \textbf{Experimento 2} & \textbf{Experimento 3} & \textbf{Experimento 4}\\ \hline
+          \textit{\textbf{Tasa aprendizaje}}      &  0.5                   &  0.3                   &  0.2                   &  0.22                 \\ \hline
+          \textit{\textbf{Ciclos}}                &  5                     &  5                     &  >100                  &  5                    \\ \hline
+          \textit{\textbf{Errores entrenamiento}} &  0.1537454242037602    &  0.12999495781099646   &  ???                   &  0.11611209167890484  \\ \hline
+          \textit{\textbf{Errores validación}}    &  0.1510858340453369    &  0.1273892127623424    &  ???                   &  0.11891913389047042  \\ \hline
+          \textit{\textbf{Errores test}}          &  0.1493666202359257    &  0.12539101364386532   &  ???                   &  0.11445888742244138  \\ \hline
+        \end{tabular}
+      \end{center}
+
+      \subsubsection*{Salida No Normalizada}
+
+      \textbf{Tabla de resultados obtenidos por experimento:}
+
+      \begin{center}
+        \begin{tabular}{|l|c|c|c|c|}
+          \hline
+                                                  & \textbf{Experimento 1} & \textbf{Experimento 2} & \textbf{Experimento 3} & \textbf{Experimento 4}\\ \hline
+          \textit{\textbf{Tasa aprendizaje}}      &  0.5                   &  0.22                  &  0.05                  &  0.22                 \\ \hline
+          \textit{\textbf{Ciclos}}                &  5                     &  8                     &  30                    &  5                    \\ \hline
+          \textit{\textbf{Errores entrenamiento}} &  69245.64846716617     &  55508.988233795564    &  50017.42808457685     &  0.11611209167890484  \\ \hline
+          \textit{\textbf{Errores validación}}    &  69642.07395718427     &  56733.54239803611     &  51961.06532331261     &  0.11891913389047042  \\ \hline
+          \textit{\textbf{Errores test}}          &  69986.82287304835     &  55858.881817193804    &  50276.791119059315    &  0.11445888742244138  \\ \hline
+        \end{tabular}
+      \end{center}
 
     \subsection{Análisis}
 

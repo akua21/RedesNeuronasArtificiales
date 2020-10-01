@@ -13,7 +13,7 @@ with open('inputs/validation_set_norm.csv') as file:
     data_validation = list(csv.reader(file, delimiter=',', skipinitialspace=True))
 
 # Variables del problema
-learning_rate = 0.19
+learning_rate = 0.22
 
 header = data_training[0]
 
@@ -108,7 +108,7 @@ print("Error in test (not normalized): ", error * (maxVal - minVal) + minVal)
 
 # Fichero salidas del adaline y deseadas
 with open('outputs/ouputs_adaline_test_norm.csv', 'w') as file:
-    file.write("y,d\n")
+    file.write("y,d,y-d\n")
     for i, y in enumerate(data_test_output):
         file.write(str(y) + "," +  data_test[i+1][-1] + "," + str(abs(y - float(data_test[i+1][-1]))) + '\n')
 

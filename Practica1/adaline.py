@@ -13,7 +13,7 @@ with open('inputs/validation_set.csv') as file:
     data_validation = list(csv.reader(file, delimiter=',', skipinitialspace=True))
 
 # Variables del problema
-learning_rate = 0.3
+learning_rate = 0.01
 
 header = data_training[0]
 
@@ -89,7 +89,11 @@ while not stop_condition:
     stop_condition = setStopCondition(error_val)
 
     print("Epoch num: ", epoch)
+
+    print("Training...", list_training_errors[-1])
+
     epoch += 1
+
 
 # Error sobre el conjunto de test una vez finalizado el aprendizaje
 data_test_output = []
@@ -98,7 +102,7 @@ print("Error in test: ", getError(data_test, data_test_output))
 
 # Fichero salidas del adaline y deseadas
 with open('outputs/ouputs_adaline_test.csv', 'w') as file:
-    file.write("y,d\n")
+    file.write("y,d,y-d\n")
     for i, y in enumerate(data_test_output):
         file.write(str(y) + "," +  data_test[i+1][-1] + "," + str(abs(y - float(data_test[i+1][-1]))) + '\n')
 
