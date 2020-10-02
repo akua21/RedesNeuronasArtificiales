@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  1 OCT 2020 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  2 OCT 2020 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -516,28 +516,33 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 95.
  [3]
-Overfull \hbox (43.30144pt too wide) in paragraph at lines 151--160
+Overfull \hbox (25.49861pt too wide) in paragraph at lines 151--160
+ [] 
+ []
+
+
+Overfull \hbox (36.62294pt too wide) in paragraph at lines 169--178
  [] 
  []
 
 
 AED: lastpage setting LastPage
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
+[4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
  (./memoria.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: F3DC3D4E8C8D870FA1A8F3E4CBB4A9BC;925.
  ) 
 Here is how much of TeX's memory you used:
- 7544 strings out of 481239
- 112042 string characters out of 5920377
- 398354 words of memory out of 5000000
+ 7545 strings out of 481239
+ 112048 string characters out of 5920377
+ 401354 words of memory out of 5000000
  22641 multiletter control sequences out of 15000+600000
  566798 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -552,10 +557,10 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on memoria.pdf (4 pages, 116051 bytes).
+Output written on memoria.pdf (5 pages, 117693 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

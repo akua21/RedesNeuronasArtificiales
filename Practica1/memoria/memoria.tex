@@ -151,13 +151,15 @@
         \begin{tabular}{|l|c|c|c|c|}
           \hline
                                                   & \textbf{Experimento 1} & \textbf{Experimento 2} & \textbf{Experimento 3} & \textbf{Experimento 4}\\ \hline
-          \textit{\textbf{Tasa aprendizaje}}      &  0.5                   &  0.3                   &  0.2                   &  0.22                 \\ \hline
-          \textit{\textbf{Ciclos}}                &  5                     &  5                     &  >100                  &  5                    \\ \hline
-          \textit{\textbf{Errores entrenamiento}} &  0.1537454242037602    &  0.12999495781099646   &  ???                   &  0.11611209167890484  \\ \hline
-          \textit{\textbf{Errores validación}}    &  0.1510858340453369    &  0.1273892127623424    &  ???                   &  0.11891913389047042  \\ \hline
-          \textit{\textbf{Errores test}}          &  0.1493666202359257    &  0.12539101364386532   &  ???                   &  0.11445888742244138  \\ \hline
+          \textit{\textbf{Tasa aprendizaje}}      &  0.5                   &  0.3                   &  0.2                   &  0.23                 \\ \hline
+          \textit{\textbf{Ciclos}}                &  5                     &  5                     &  >150                  &  5                    \\ \hline
+          \textit{\textbf{Err. entrenamiento}}    &  0.1537454242037602    &  0.12999495781099646   &  ???                   &  0.12146479231784094  \\ \hline
+          \textit{\textbf{Err. validación}}       &  0.1510858340453369    &  0.1273892127623424    &  ???                   &  0.11870284063366673  \\ \hline
+          \textit{\textbf{Err. test}}             &  0.1493666202359257    &  0.12539101364386532   &  ???                   &  0.1168773340255847   \\ \hline
         \end{tabular}
       \end{center}
+
+      Según se ha ido disminuyendo el valor de la tasa de aprendizaje, se han encontrado mejores resultados, hasta llegar a un valor de \textbf{0.23}(Experimento 4). Cualquier valor más pequeño que ese, hace que el algoritmo no acabe en un número de ciclos razonable.
 
       \subsubsection*{Salida No Normalizada}
 
@@ -167,13 +169,15 @@
         \begin{tabular}{|l|c|c|c|c|}
           \hline
                                                   & \textbf{Experimento 1} & \textbf{Experimento 2} & \textbf{Experimento 3} & \textbf{Experimento 4}\\ \hline
-          \textit{\textbf{Tasa aprendizaje}}      &  0.5                   &  0.22                  &  0.05                  &  0.22                 \\ \hline
-          \textit{\textbf{Ciclos}}                &  5                     &  8                     &  30                    &  5                    \\ \hline
-          \textit{\textbf{Errores entrenamiento}} &  69245.64846716617     &  55508.988233795564    &  50017.42808457685     &  0.11611209167890484  \\ \hline
-          \textit{\textbf{Errores validación}}    &  69642.07395718427     &  56733.54239803611     &  51961.06532331261     &  0.11891913389047042  \\ \hline
-          \textit{\textbf{Errores test}}          &  69986.82287304835     &  55858.881817193804    &  50276.791119059315    &  0.11445888742244138  \\ \hline
+          \textit{\textbf{Tasa aprendizaje}}      &  0.5                   &  0.22                  &  0.05                  &  0.01                 \\ \hline
+          \textit{\textbf{Ciclos}}                &  5                     &  8                     &  30                    &  139                  \\ \hline
+          \textit{\textbf{Err. entrenamiento}}    &  69245.64846716617     &  55508.988233795564    &  50017.42808457685     &  49891.46770073132    \\ \hline
+          \textit{\textbf{Err. validación}}       &  69642.07395718427     &  56733.54239803611     &  51961.06532331261     &  52020.971503368535   \\ \hline
+          \textit{\textbf{Err. test}}             &  69986.82287304835     &  55858.881817193804    &  50276.791119059315    &  50082.97953387804    \\ \hline
         \end{tabular}
       \end{center}
+
+      Igual que en el caso anterior, se ha ido disminuyendo la tasa de aprendizaje, y en este caso se ha alcanzado el valor de \textbf{0.01}. A partir de ese valor, el algoritmo no converge en un número razonable de ciclos.
 
     \subsection{Análisis}
 
