@@ -13,7 +13,7 @@ with open('inputs/validation_set_norm.csv') as file:
     data_validation = list(csv.reader(file, delimiter=',', skipinitialspace=True))
 
 # Variables del problema
-learning_rate = 0.23
+learning_rate = 0.1
 
 header = data_training[0]
 
