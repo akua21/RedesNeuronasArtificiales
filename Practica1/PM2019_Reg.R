@@ -41,15 +41,15 @@ model <- mlp(x= trainSet[,-salida],
 
 # #GRAFICO DE LA EVOLUCION DEL ERROR
 # plotIterativeError(model)
-# 
+#
 # # DATAFRAME CON LOS ERRORES POR CICLo: de entrenamiento y de validacion
 # iterativeErrors <- data.frame(MSETrain= (model$IterativeFitError/ nrow(trainSet)),
 #                               MSEValid= (model$IterativeTestError/nrow(validSet)))
-# 
-# # 
-# #SE OBTIENE EL N?MERO DE CICLOS DONDE EL ERROR DE VALIDACION ES MINIMO 
+#
+# #
+# #SE OBTIENE EL N?MERO DE CICLOS DONDE EL ERROR DE VALIDACION ES MINIMO
 # nuevosCiclos <- which.min(model$IterativeTestError)
-# 
+#
 # #ENTRENAMOS LA MISMA RED CON LAS ITERACIONES QUE GENERAN MENOR ERROR DE VALIDACION
 # #set.seed(1)
 # model <- mlp(x= trainSet[,-salida],
