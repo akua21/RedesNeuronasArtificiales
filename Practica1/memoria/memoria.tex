@@ -224,11 +224,42 @@
 
       Gracias a este ajuste, consigue un error medio menor en el conjunto de entrenamiento: \textbf{\$50082.97953387804}.
 
-  \section{Perceptron Multicapa}
+  \section{Perceptrón Multicapa}
+
+  El \textbf{Perceptrón Multicapa} se ha ejecutado usando el \textit{script} proporcionado, que está en el lenguaje de programación \textit{R}.
+
 
     \subsection{Experimentación}
 
+    En este caso, es necesario trabajar con la salida normalizada porque, sino, se produce el efecto de saturación en las neuronas de la red, lo que hace que no sean capaces de aprender.
+
+    \vspace{2mm}
+
+    Por otro lado, la condición de parada en este caso es diferente. Consiste en evaluar el modelo con un número fijo de ciclos y decidir en qué ciclo se ha obtenido mejor resultado, tras ello se vuelve a entrenar a la red usando el número de ciclos óptimo.
+
+    \vspace{2mm}
+
+    Los parámetro configurables de este algoritmo son la \textbf{topología}, la \textbf{razón de aprendizaje} y el número de \textbf{ciclos máximos}. Se ha decidido fijar el número de ciclos máximos para todos los experimentos a \textbf{2000}.
+
+
     \subsection{Resultados Obtenidos}
+
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+                                                & \textbf{Experimento 1-1} & \textbf{Experimento 2-8} & \textbf{Experimento 3-8} & \textbf{Experimento 4-8} & \textbf{Experimento 5-8}\\ \hline
+        \textit{\textbf{Topología}}             &  c( )                    &  c(20)                   &  c(20,20)                &  c(10)                   &  c(10,10)               \\ \hline
+        \textit{\textbf{Tasa aprend.}}          &  0.01                    &  1                       &  1                       &  1                       &  1                      \\ \hline
+        \textit{\textbf{Ciclos ópt.}}           &  2000                    &  1571                    &  1993                    &  2000                    &  2000                   \\ \hline
+        \textit{\textbf{Err. entren.}}          &  0.10026694              &  0.07942846              &  0.07477689              &  0.08227377              &  0.0789468              \\ \hline
+        \textit{\textbf{Err. valid.}}           &  0.09714262              &  0.0796467               &  0.07589745              &  0.08090108              &  0.07901947             \\ \hline
+        \textit{\textbf{Err. test}}             &  0.09627861              &  0.07973496              &  0.0756311               &  0.08191064              &  0.07879357             \\ \hline
+      \end{tabular}
+    \end{center}
+
+
+
+
 
     \subsection{Análisis}
 

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.23)  2 OCT 2020 14:00
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  2 OCT 2020 16:49
->>>>>>> a139b69a365f9b0d2470685ca08402e2fec725ff
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  25 OCT 2020 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -552,35 +548,32 @@ File: Images/y_d_adaline.png Graphic file (type png)
 Package pdftex.def Info: Images/y_d_adaline.png  used on input line 219.
 (pdftex.def)             Requested size: 398.33858pt x 185.88832pt.
 
+Overfull \hbox (27.35777pt too wide) in paragraph at lines 248--258
+ [] 
+ []
 
+[6 <./Images/y_d_adaline.png>] 
 AED: lastpage setting LastPage
-[6 <./Images/y_d_adaline.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
+[7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
  (./memoria.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: F3DC3D4E8C8D870FA1A8F3E4CBB4A9BC;925.
+(rerunfilecheck)             Checksum: C65C1674BCECC3178C6F9C9DE063D3F1;928.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 7545 strings out of 483121
- 112048 string characters out of 5964354
- 396535 words of memory out of 5000000
- 22398 multiletter control sequences out of 15000+600000
-=======
- 7572 strings out of 481239
- 112758 string characters out of 5920377
+ 7573 strings out of 481239
+ 112764 string characters out of 5920377
  399354 words of memory out of 5000000
  22661 multiletter control sequences out of 15000+600000
->>>>>>> a139b69a365f9b0d2470685ca08402e2fec725ff
  566798 words of font info for 51 fonts, out of 8000000 for 9000
- 40 hyphenation exceptions out of 8191
- 42i,11n,49p,798b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1141 hyphenation exceptions out of 8191
+ 42i,11n,49p,798b,390s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -591,14 +584,10 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-<<<<<<< HEAD
-Output written on memoria.pdf (5 pages, 117696 bytes).
-=======
-Output written on memoria.pdf (6 pages, 204948 bytes).
->>>>>>> a139b69a365f9b0d2470685ca08402e2fec725ff
+Output written on memoria.pdf (7 pages, 207278 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
+ 183 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
