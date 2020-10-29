@@ -61,11 +61,11 @@
 
   \section{Introducción}
 
-  El problema a resolver es la \textbf{predicción del precio medio de la vivenda en California}, usando dos modelos diferentes: \textit{Adaline} y \textit{Perceptron Multicapa}.
+  El problema a resolver es la \textbf{predicción del precio medio de la vivenda en California}, usando dos modelos diferentes: \textit{ADALINE} y \textit{Perceptrón Multicapa}.
 
   \vspace{3mm}
 
-  El \textit{Adaline} es un modelo \textbf{lineal}, mientras que el \textit{Perceptron Multicapa} es un modelo \textbf{no lineal}. El objetivo de esta práctica es realizar una comparativa entre estos dos modelos mediante la experimentación y análisis de los resultados, para averiguar cuál de los dos es capaz de encontrar la solución más cercana a la solución óptima.
+  El \textit{ADALINE} es un modelo \textbf{lineal}, mientras que el \textit{Perceptrón Multicapa} es un modelo \textbf{no lineal}. El objetivo de esta práctica es realizar una comparativa entre estos dos modelos mediante la experimentación y análisis de los resultados, para averiguar cuál de los dos es capaz de encontrar la solución más cercana a la solución óptima.
 
   \section{Preparación de Datos}
 
@@ -239,34 +239,106 @@
 
     \vspace{2mm}
 
-    Los parámetro configurables de este algoritmo son la \textbf{topología}, la \textbf{razón de aprendizaje} y el número de \textbf{ciclos máximos}. Se ha decidido fijar el número de ciclos máximos para todos los experimentos a \textbf{2000}.
+    Los parámetro configurables de este algoritmo son la \textbf{topología}, la \textbf{razón de aprendizaje} y el número de \textbf{ciclos máximos}. Se ha decidido fijar el número de ciclos máximos para todos los experimentos a \textbf{10000}.
+
+    \vspace{2mm}
+
+    Los experimentos se han llevado a cabo teniendo en cuenta el resultado de experimentos anteriores, para intentar encontrar mejorers resultados con cada uno. A su vez, cada experimento está compuesto de distintos \textit{subexperimentos}, donde se intenta encontar la mejor razón de aprendizaje para cada uno.
+
+    \vspace{2mm}
+
+    Los experimentos que se han llevado a cabo son:
+
+      \begin{itemize}
+        \item \textbf{Experimento 1}: la topología de la red consiste en no tener \textbf{ninguna capa oculta}, por lo que se podría considerar que no llega a ser un \textit{Perceptrón Multicapa} al no poseer capas ocultas, pero sirve de caso base para comparar el resto de experimentos.
+        \item \textbf{Experimento 2}: tras el experimento anterior se decide configurar un modelo que posee \textbf{una capa oculta} con \textbf{20 neuronas} para buscar la mejora de resultados al añadir una capa oculta.
+        \item \textbf{Experimento 3}: como al añadir una capa oculta se comprueba que mejora bastante, se prueba a aumentar el número de neuronas, por lo que este experimento tiene también \textbf{una capa oculta} pero esta vez tiene \textbf{30 neuronas}.
+        \item \textbf{Experimento 4}: el último modelo consiste en crear una topología de red con \textbf{dos capas ocultas} cada una con \textbf{30 y 20 neuronas} respectivamente con la que se pretende mejorar aún más la precisión del modelo.
+      \end{itemize}
+
 
 
     \subsection{Resultados Obtenidos}
 
+    Tabla de resultados obtenidos por experimento:
+
     \begin{center}
-      \begin{tabular}{|l|c|c|c|c|c|}
+      \begin{tabular}{|l|c|c|c|c|c|c|}
         \hline
-                                                & \textbf{Experimento 1-1} & \textbf{Experimento 2-8} & \textbf{Experimento 3-8} & \textbf{Experimento 4-8} & \textbf{Experimento 5-8}\\ \hline
-        \textit{\textbf{Topología}}             &  c( )                    &  c(20)                   &  c(20,20)                &  c(10)                   &  c(10,10)               \\ \hline
-        \textit{\textbf{Tasa aprend.}}          &  0.01                    &  1                       &  1                       &  1                       &  1                      \\ \hline
-        \textit{\textbf{Ciclos ópt.}}           &  2000                    &  1571                    &  1993                    &  2000                    &  2000                   \\ \hline
-        \textit{\textbf{Err. entren.}}          &  0.10026694              &  0.07942846              &  0.07477689              &  0.08227377              &  0.0789468              \\ \hline
-        \textit{\textbf{Err. valid.}}           &  0.09714262              &  0.0796467               &  0.07589745              &  0.08090108              &  0.07901947             \\ \hline
-        \textit{\textbf{Err. test}}             &  0.09627861              &  0.07973496              &  0.0756311               &  0.08191064              &  0.07879357             \\ \hline
+        & \textit{\textbf{Topología}} & \textit{\textbf{Tasa aprend.}} & \textit{\textbf{Ciclos ópt.}} & \textit{\textbf{Err. entren.}} & \textit{\textbf{Err. valid.}} & \textit{\textbf{Err. test}}\\ \hline \hline
+        \textbf{Experimento 1-1}&  c( )      &  0.01  &  9998   &  0.09985901  &  0.09648482  &  0.09615899  \\ \hline
+        \textbf{Experimento 1-2}&  c( )      &  0.05  &  2835   &  0.09971082  &  0.09638341  &  0.09597574  \\ \hline
+        \textbf{Experimento 1-3}&  c( )      &  0.03  &  6553   &  0.09981516  &  0.09646387  &  0.09609764  \\ \hline
+        \textbf{Experimento 1-4}&  c( )      &  0.04  &  3368   &  0.09975728  &  0.09641738  &  0.09603159  \\ \hline \hline
+        \textbf{Experimento 2-1}&  c(20)     &  0.01  &  10000  &  0.08838755  &  0.08637155  &  0.084649    \\ \hline
+        \textbf{Experimento 2-2}&  c(20)     &  0.07  &  10000  &  0.07790314  &  0.07747784  &  0.07685197  \\ \hline
+        \textbf{Experimento 2-3}&  c(20)     &  0.15  &  10000  &  0.07818915  &  0.07721448  &  0.07657498  \\ \hline
+        \textbf{Experimento 2-4}&  c(20)     &  0.4   &  6096   &  0.076175    &  0.0759147   &  0.07687894  \\ \hline \hline
+        \textbf{Experimento 3-1}&  c(30)     &  0.1   &  10000  &  0.07710104  &  0.07670325  &  0.07649249  \\ \hline
+        \textbf{Experimento 3-2}&  c(30)     &  0.4   &  10000  &  0.07562609  &  0.07617276  &  0.0765667   \\ \hline
+        \textbf{Experimento 3-3}&  c(30)     &  0.7   &  10000  &  0.07562471  &  0.07674079  &  0.07711822  \\ \hline
+        \textbf{Experimento 3-4}&  c(30)     &  0.9   &  6828   &  0.07747128  &  0.07813840  &  0.07780503  \\ \hline \hline
+        \textbf{Experimento 4-1}&  c(30,20)  &  0.1   &  9880   &  0.06917029  &  0.07142923  &  0.07368347  \\ \hline
+        \textbf{Experimento 4-2}&  c(30,20)  &  0.3   &  10000  &  0.0644995   &  0.07030901  &  0.07212733  \\ \hline
+        \textbf{Experimento 4-3}&  c(30,20)  &  0.7   &  6687   &  0.06347896  &  0.06924343  &  0.07099247  \\ \hline
+        \textbf{Experimento 4-4}&  c(30,20)  &  0.6   &  2525   &  0.06820952  &  0.07108485  &  0.07261085  \\ \hline
       \end{tabular}
     \end{center}
 
 
+    Los experimentos que tienen un total de 10000 ciclos como número de ciclos óptimos se deben a que la red no consigue converger y al llegar a este número se considera que debe detenerse la ejecución para evitar que cada experimento dure demasiado tiempo.
 
+    \vspace{4mm}
 
+    En el caso de que uno de estos experimetos, que no han tenido tiempo de converger, sea uno de los mejores o el mejor, se volverá a realizar la ejecución pero con un mayor número de ciclos máximos.
+
+    \vspace{5mm}
+
+    Tal y como se puede ver en la tabla anterior, el error de test disminuye según aumenta la complejidad de la topología del modelo. Siendo el \textbf{Experimento 4-3} el que genera menos error con un valor de \textbf{0.07099247}.
+
+    \vspace{4mm}
+
+    La siguiente gráfica muestra la evolución del error de entrenamiento y validación de este experimento, en ella se puede ver como progresan de manera similar, aunque entre la iteración nº 1000 y la nº 2000 se separan y el error de validación aumenta más que el de entrenamiento. Esto puede deberse a un \textit{overfitting}.
+
+    \imgcenter[120]{Images/Exp4_3.png}
 
     \subsection{Análisis}
 
+    En esta sección se analizan las salidas obtenidas frente a las deseadas del mejor experimento del \textit{Perceptrón Multicapa} (Experimento 4-3):
+
+    \imgcenter[140]{Images/y_d_perceptron.png}
+
+    Se puede observar que tiene un comportamiento muy similar al \textit{ADALINE}, aunque parece tener bastantes más picos. Con este ajuste consigue un error medio en test del: \textbf{\$49430.49}, que sigue siendo un error muy alto.
+
+
   \section{Comparación de Modelos}
+
+  Una vez realizados y analizados cada uno de los algoritmos por separado, se procede a su comparación con el objetivo de determinar cuál ofrece una mejor solución al problema planteado. Se van a contrastar los mejores experimetos de cada algoritmo.
+
+  \vspace{4mm}
+
+  Aunque el error del modelo del \textit{Perceptrón Multicapa} sea mejor, no supone una mejora sustancial, e incluso, dado que el tiempo de entrenamiento del perceptrón multicapa es mucho mayor, se podría llegara a considerar que el error del modelo de \textit{ADALINE} es mejor. El modelo de ADALINE usa \textbf{2836} ciclos menos que el del perceptrón multicapa.
+
+  \imgcenter[100]{Images/comparativa.png}
+
+  Tal y como se puede ver en la gráfica anterior, la diferncia entre el error de un algoritmo y otro es ínfima. En concreto, el \textit{ADALINE} se equivoca de media tan solo en \$652.49 más que el \textit{Perceptrón Multicapa}.
+
 
   \section{Conclusiones}
 
+  A pesar de que muchas veces se puede considerar que modelos más complejos simpre suponen soluciones más precisas, en aprendizaje automático no siempre es cierto. A veces puede incluso cumplirse lo contrario. En este caso se puede ver algo por el estilo.
+
+  \vspace{3mm}
+
+  Aunque el modelo no lineal tiene mayor complejidad tanto en estructura como en tiempo de entrenamiento, su predicción no está muy lejos de la generada por el modelo lineal \textit{ADALINE}.
+
+  \vspace{4mm}
+
+  Respecto a los conceptos de esta práctica, ha sido especialemnte útil la programación del algoritmo \textit{ADALINE} para ganar confianza y familiarización con la estructura y método de aprendizaje de las redes neuronales, además de ver como influyen los distintos parámetros modificables en ellos.
+
+  \vspace{2mm}
+
+  El \textit{Perceptrón} no aportaba demasiado en tema de conceptos, pero sí ayuda a aprender en qué consiste un proceso de experimentación con una red neuronal, y sirve como toma de contacto con el lenguaje de programación \textit{R}.
 
 
 \end{document}

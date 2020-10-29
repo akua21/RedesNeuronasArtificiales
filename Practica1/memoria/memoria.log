@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  25 OCT 2020 16:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.23)  29 OCT 2020 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -547,33 +547,55 @@ File: Images/y_d_adaline.png Graphic file (type png)
 <use Images/y_d_adaline.png>
 Package pdftex.def Info: Images/y_d_adaline.png  used on input line 219.
 (pdftex.def)             Requested size: 398.33858pt x 185.88832pt.
+ [6 <./Images/y_d_adaline.png>]
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 3
+01.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 9.49997pt on input line 301.
+<Images/Exp4_3.png, id=135, 499.11469pt x 369.63094pt>
+File: Images/Exp4_3.png Graphic file (type png)
+<use Images/Exp4_3.png>
+Package pdftex.def Info: Images/Exp4_3.png  used on input line 303.
+(pdftex.def)             Requested size: 341.43306pt x 252.86288pt.
 
-Overfull \hbox (27.35777pt too wide) in paragraph at lines 248--258
- [] 
- []
-
-[6 <./Images/y_d_adaline.png>] 
-AED: lastpage setting LastPage
 [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
+<Images/y_d_perceptron.png, id=142, 797.98125pt x 372.39125pt>
+File: Images/y_d_perceptron.png Graphic file (type png)
+<use Images/y_d_perceptron.png>
+Package pdftex.def Info: Images/y_d_perceptron.png  used on input line 309.
+(pdftex.def)             Requested size: 398.33858pt x 185.88832pt.
+ [8 <./Images/Exp4_3.png (PNG copy)> <./Images/y_d_perceptron.png>]
+<Images/comparativa.png, id=149, 602.25pt x 372.39125pt>
+File: Images/comparativa.png Graphic file (type png)
+<use Images/comparativa.png>
+Package pdftex.def Info: Images/comparativa.png  used on input line 322.
+(pdftex.def)             Requested size: 284.52756pt x 175.93874pt.
+
+
+AED: lastpage setting LastPage
+[9 <./Images/comparativa.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 344.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 344.
  (./memoria.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 344.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 344.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: C65C1674BCECC3178C6F9C9DE063D3F1;928.
  ) 
 Here is how much of TeX's memory you used:
- 7573 strings out of 481239
- 112764 string characters out of 5920377
- 399354 words of memory out of 5000000
- 22661 multiletter control sequences out of 15000+600000
- 566798 words of font info for 51 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 42i,11n,49p,798b,390s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 7625 strings out of 483121
+ 113702 string characters out of 5964354
+ 400535 words of memory out of 5000000
+ 22461 multiletter control sequences out of 15000+600000
+ 567111 words of font info for 52 fonts, out of 8000000 for 9000
+ 40 hyphenation exceptions out of 8191
+ 42i,11n,49p,798b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -584,10 +606,10 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on memoria.pdf (7 pages, 207278 bytes).
+Output written on memoria.pdf (9 pages, 277054 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 198 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
