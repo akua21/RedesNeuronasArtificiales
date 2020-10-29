@@ -24,9 +24,9 @@ salida <- ncol (trainSet)   #num de la columna de salida
 
 
 #SELECCION DE LOS PARAMETROS
-topologia        <- c(30) #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
-razonAprendizaje <- 1 #NUMERO REAL ENTRE 0 y 1
-ciclosMaximos    <- 2000 #NUMERO ENTERO MAYOR QUE 0
+topologia        <- c(30, 20) #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
+razonAprendizaje <- 0.7 #NUMERO REAL ENTRE 0 y 1
+ciclosMaximos    <- 10000 #NUMERO ENTERO MAYOR QUE 0
 
 #EJECUCION DEL APRENDIZAJE Y GENERACION DEL MODELO
 
@@ -89,16 +89,18 @@ outputsTrain <- data.frame(pred= prediccionesTrain,obs= trainSet[,salida])
 outputsValid <- data.frame(pred= prediccionesValid,obs= validSet[,salida])
 outputsTest  <- data.frame(pred= prediccionesTest, obs=  testSet[,salida])
 
-
-
+minvalue <- 14999
+maxvalue <- 500001
+outputsTest <- outputsTest * (maxvalue - minvalue) + minvalue
 
 #GUARDANDO RESULTADOS
-saveRDS(model,"outputs_R/nnet.rds")
+saveRDS(model,"outputs_R/nnet.rds") #Red obtenida
 write.csv2(errors,"outputs_R/finalErrors.csv")
-write.csv2(iterativeErrors,"outputs_R/iterativeErrors.csv")
+write.csv2(iterativeErrors,"outputs_R/iterativeErrors.csv")  #Errores por ciclos
 write.csv2(outputsTrain,"outputs_R/netOutputsTrain.csv")
 write.csv2(outputsValid,"outputs_R/netOutputsValid.csv")
-write.csv2(outputsTest, "outputs_R/netOutputsTest.csv")
+write.csv2(outputsTest, "outputs_R/netOutputsTest.csv") #Salidas deseadas y obtenidas en test (falta desnormalizar)
+
 
 
 
