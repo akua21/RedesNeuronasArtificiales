@@ -1,0 +1,131 @@
+\documentclass{uc3mpracticas}
+
+\usepackage{helvet}
+\usepackage{multicol}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                   Plantilla Prácticas UC3M                               %%%
+%%%                Universidad Carlos III de Madrid                          %%%
+%%%                   Alejandro Valverde Mahou                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Permitir cabeceras y pie de páginas personalizados
+\pagestyle{fancy}
+
+%Path por defecto de las imágenes
+\graphicspath{ {./images/} }
+
+%Declarar formato de encabezado y pie de página de las páginas del documento
+\fancypagestyle{doc}{
+  %Cabecera
+  \headerpr[1]{Problema de Clasificación: Parte I}{}{Redes de Neuronas Artificiales}
+  %Pie de Página
+  \footerpr{}{\textbf{UC3M}}{{\thepage} de \pageref{LastPage}}
+}
+
+%Declarar formato de encabezado y pie del título e indice
+\fancypagestyle{titu}{%
+  %Cabecera
+  \headerpr{}{}{}
+  %Pie de Página
+  \footerpr{}{}{}
+}
+
+
+\appto\frontmatter{\pagestyle{titu}}
+\appto\mainmatter{\pagestyle{doc}}
+
+
+\begin{document}
+  %Comienzo formato título
+  \frontmatter
+
+
+  %Portada 1 (Centrado todo)
+  \centeredtitle{Images/LogoUC3M.png}{Grado en Ingeniería Informática}{Curso 2020/2021}{Redes de Neuronas Artificiales}{Problema de Clasificación: Parte I}{Clasificación de imágenes del cielo con el Perceptrón Multicapa}
+
+  \vspace{55mm}
+
+  \authors{Alba Reinders Sánchez}{100383444}{Alejandro Valverde Mahou}{100383383}{}{}{}{}
+
+  \newpage
+
+  %Índice
+  \tableofcontents
+
+  \newpage
+
+  %Comienzo formato documento general
+  \mainmatter
+
+\section{Introducción}
+
+El problema planteado consiste en clasificar imágenes del cielo con el objetivo de ayudar a la estimación de la radiación solar que incide en un lugar, ya que la cantidad de esta radiación varía si hay nubes o no, y del tipo de las nubes.
+
+\vspace{3mm}
+
+Para ello, se hace una simplificación del problema real reduciendo a tres posibles clases las imágenes:
+
+\begin{itemize}
+  \item Cielo Despejado
+  \item Nube \textit{(sólo un tipo de nube)}
+  \item Multinube \textit{(varios tipos de nube)}
+\end{itemize}
+
+Dado que en esta primera parte de la práctica se trabaja con un \textbf{Perceptrón Multicapa}, es necesario transformar la información de la imagen en distintos atributos numéricos.
+
+\vspace{3mm}
+
+Los datos que se usan en esta práctica provienen del \textit{grupo MATRAS de la Universidad de Jaén} y contienen estadísticos y transformaciones de imágenes del cielo completo, que permiten al Perceptrón Multicapa realizar la clasificación.
+
+\vspace{2mm}
+
+El conjunto de datos tiene \textbf{717} instancias con \textbf{12} atributos de entrada y \textbf{1} atributo de salida, la clase.
+
+\begin{enumerate}
+  \begin{multicols}{2}
+  \item Media del canal azul
+  \item Media del canal rojo
+  \item Desviación típica del canal azul
+  \item Sesgo del canal azul
+  \item Diferencia de medias Rojo – Verde
+  \item Diferencia de medias Rojo – Azul
+  \columnbreak
+  \item Diferencia de medias Verde – Azul
+  \item Entropía del canal azul
+  \item Energía del canal azul
+  \item Contraste del canal azul
+  \item Homogeneidad del canal azul
+  \item Cobertura
+  \end{multicols}
+\end{enumerate}
+
+
+
+\section{Preparación de los datos}
+
+Se debe hacer un preprocesado de los datos para poder realizar de manera más efectiva el entrenamiento de la red. Primero se normaliza el conjunto de datos y después se divide en 4 subconjuntos, ya que se lleva a cabo \textit{validación cruzada estratificada} de 4 hojas.
+
+\subsection{Normalizar}
+
+Es necesario normalizar los datos de entrada, dado que cada atributo suele tener rangos de valores muy diferentes. Normalizarlos en el intervalo [0,1] evita posibles sesgos generados por esta difencia de rangos de los atributos durante el aprendizaje de la red.
+
+
+\subsection{Preparar los datos para Validación Cruzada}
+
+
+\section{Experimentación}
+
+\section{Análisis de los resultados}
+
+Evolución de los errores de entrenamiento y test a lo largo del aprendizaje solo para algunos (o algún) de los experimentos (los más significativos).
+
+
+Porcentajes de aciertos de entrenamiento y test al finalizar el aprendizaje de todos los experimentos realizados.
+
+\section{Conclusión}
+
+
+\end{document}
