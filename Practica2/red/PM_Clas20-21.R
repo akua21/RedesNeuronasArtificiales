@@ -17,12 +17,10 @@ set.seed(1)
 
 #CARGA DE LOS DATOS
 # cambiar a fold 2 y 3
-folds <- c(1, 2, 3, 4)
-for (i in folds){
-  trainSet <- read.csv(paste("train",fold,".csv",sep=""),dec=".",sep=",",header = T)
-  testSet  <- read.csv(paste("test", fold,".csv",sep=""),dec=".",sep=",",header = T)
+fold <- 1
 
-}
+trainSet <- read.csv(paste("../datos/train",1,".csv",sep=""),dec=".",sep=",",header = T)
+testSet  <- read.csv(paste("../datos/test", 1,".csv",sep=""),dec=".",sep=",",header = T)
 
 #SELECCION DE LA SALIDA. Num de columna del target. 
 nTarget <- ncol(trainSet)    
@@ -87,8 +85,8 @@ trainPredClass<-as.factor(apply(trainPred,1,which.max))
 testPredClass<-as.factor(apply(testPred,1,which.max)) 
 
 #transforma las etiquetas "1", "2", "3" en "cieloDespejado" "multinube" "nube"
-levels(testPredClass)<-c("cieloDespejado", "multinube","nube")
-levels(trainPredClass)<-c("cieloDespejado", "multinube","nube")
+levels(testPredClass)<-c("cieloDespejado", "nube","multinube")
+levels(trainPredClass)<-c("cieloDespejado", "nube","multinube")
 
 
 #CALCULO DE LAS MATRICES DE CONFUSION
