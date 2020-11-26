@@ -3,7 +3,7 @@ library(RSNNS)
 # Funciones
 
 graficaError <- function(iterativeErrors){
-  plot(1:nrow(iterativeErrors),iterativeErrors[,1], type="l", main="Evolución del error",
+  plot(1:nrow(iterativeErrors),iterativeErrors[,1], type="l", main="Evoluci?n del error",
        ylab="MSE (3 salidas)",xlab="Ciclos",
        ylim=c(min(iterativeErrors),max(iterativeErrors)))
   lines(1:nrow(iterativeErrors),iterativeErrors[,2], col="red")
@@ -17,19 +17,12 @@ set.seed(1)
 
 #CARGA DE LOS DATOS
 # cambiar a fold 2 y 3
+folds <- c(1, 2, 3, 4)
+for (i in folds){
+  trainSet <- read.csv(paste("train",fold,".csv",sep=""),dec=".",sep=",",header = T)
+  testSet  <- read.csv(paste("test", fold,".csv",sep=""),dec=".",sep=",",header = T)
 
-fold <- 1
-
-
-# usar read.table si los campos están separados por espacios o tabuladores. 
-# Si están separados por ; o , usar read.csv
-
-#trainSet <- read.table(paste("Train",fold,".txt",sep=""),header = T)
-#testSet  <- read.table(paste("Test", fold,".txt",sep=""),header = T)
-
-trainSet <- read.csv(paste("Train",fold,".csv",sep=""),dec=".",sep=",",header = T)
-testSet  <- read.csv(paste("Test", fold,".csv",sep=""),dec=".",sep=",",header = T)
-
+}
 
 #SELECCION DE LA SALIDA. Num de columna del target. 
 nTarget <- ncol(trainSet)    
@@ -53,7 +46,7 @@ topologia        <- c(10,10)
 razonAprendizaje <- 0.001
 ciclosMaximos    <- 10000
 
-## generar un nombre de fichero que incluya los hiperparámetros
+## generar un nombre de fichero que incluya los hiperpar?metros
 fileID <- paste("fold_",fold,"_topol",paste(topologia,collapse="-"),"_ra",
                 razonAprendizaje,"_iter",ciclosMaximos,sep="")
 
@@ -125,10 +118,10 @@ saveRDS(model,            paste("nnet_",fileID,".rds",sep=""))
 #tasa de aciertos (accuracy)
 write.csv(accuracies,     paste("finalAccuracies_",fileID,".csv",sep=""))
 
-#Evolución de los errores MSE
+#Evoluci?n de los errores MSE
 write.csv(iterativeErrors,paste("iterativeErrors_",fileID,".csv",sep=""))
 
-#salidas esperadas de test con la clase (Target) (última columna del fichero de test)
+#salidas esperadas de test con la clase (Target) (?ltima columna del fichero de test)
 write.csv( testSet[,nTarget] ,      paste("TestTarget_",fileID,".csv",sep=""), row.names = TRUE)
 
 
@@ -142,7 +135,7 @@ write.csv(testPred ,      paste("TestRawOutputs_",fileID,".csv",sep=""), row.nam
 #salidas de test con la clase
 write.csv(testPredClass,  paste("TestClassOutputs_",fileID,".csv",sep=""),row.names = TRUE)
 
-# matrices de confusión
+# matrices de confusi?n
 write.csv(trainCm,        paste("trainCm_",fileID,".csv",sep=""))
 write.csv(testCm,         paste("testCm_",fileID,".csv",sep=""))
 
