@@ -45,7 +45,7 @@ testInput  <- as.matrix(testInput )
 
 #SELECCION DE LOS HIPERPARAMETROS DE LA RED
 topologia        <- c(10, 10, 10)
-razonAprendizaje <- 0.01
+razonAprendizaje <- 0.001
 ciclosMaximos    <- 10000
 
 ## generar un nombre de fichero que incluya los hiperpar?metros
