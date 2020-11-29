@@ -13,14 +13,18 @@ graficaError <- function(iterativeErrors){
 accuracy <- function (cm) sum(diag(cm))/sum(cm)
 
 
-set.seed(1)
+
+
+folds <- c(1, 2, 3, 4)
+
+for (i in folds) {
 
 #CARGA DE LOS DATOS
 # cambiar a fold 2 y 3
-fold <- 1
+fold <- i
 
-trainSet <- read.csv(paste("../datos/train",1,".csv",sep=""),dec=".",sep=",",header = T)
-testSet  <- read.csv(paste("../datos/test", 1,".csv",sep=""),dec=".",sep=",",header = T)
+trainSet <- read.csv(paste("../datos/train",fold,".csv",sep=""),dec=".",sep=",",header = T)
+testSet  <- read.csv(paste("../datos/test", fold,".csv",sep=""),dec=".",sep=",",header = T)
 
 #SELECCION DE LA SALIDA. Num de columna del target. 
 nTarget <- ncol(trainSet)    
@@ -40,8 +44,8 @@ testInput  <- as.matrix(testInput )
 
 
 #SELECCION DE LOS HIPERPARAMETROS DE LA RED
-topologia        <- c(10,10)
-razonAprendizaje <- 0.001
+topologia        <- c(10, 10, 10, 10)
+razonAprendizaje <- 0.025
 ciclosMaximos    <- 10000
 
 ## generar un nombre de fichero que incluya los hiperpar?metros
@@ -60,9 +64,6 @@ model <- mlp(x= trainInput,
              shufflePatterns = F
 )
 
-#GRAFICO DE LA EVOLUCION DEL ERROR
-#
-#plotIterativeError(model)
 
 #TABLA CON LOS ERRORES POR CICLO de train y test correspondientes a las 4 salidas
 iterativeErrors <- data.frame(MSETrain= (model$IterativeFitError/nrow(trainSet)),
@@ -85,8 +86,8 @@ trainPredClass<-as.factor(apply(trainPred,1,which.max))
 testPredClass<-as.factor(apply(testPred,1,which.max)) 
 
 #transforma las etiquetas "1", "2", "3" en "cieloDespejado" "multinube" "nube"
-levels(testPredClass)<-c("cieloDespejado", "nube","multinube")
-levels(trainPredClass)<-c("cieloDespejado", "nube","multinube")
+levels(testPredClass)<-c("cieloDespejado","multinube", "nube")
+levels(trainPredClass)<-c("cieloDespejado", "multinube", "nube")
 
 
 #CALCULO DE LAS MATRICES DE CONFUSION
@@ -111,31 +112,34 @@ accuracies
 
 #GUARDANDO RESULTADOS
 #MODELO
-saveRDS(model,            paste("nnet_",fileID,".rds",sep=""))
+saveRDS(model,            paste("files/nnet_",fileID,".rds",sep=""))
 
 #tasa de aciertos (accuracy)
-write.csv(accuracies,     paste("finalAccuracies_",fileID,".csv",sep=""))
+write.csv(accuracies,     paste("files/finalAccuracies_",fileID,".csv",sep=""))
 
 #Evoluci?n de los errores MSE
-write.csv(iterativeErrors,paste("iterativeErrors_",fileID,".csv",sep=""))
+write.csv(iterativeErrors,paste("files/iterativeErrors_",fileID,".csv",sep=""))
 
 #salidas esperadas de test con la clase (Target) (?ltima columna del fichero de test)
-write.csv( testSet[,nTarget] ,      paste("TestTarget_",fileID,".csv",sep=""), row.names = TRUE)
+write.csv( testSet[,nTarget] ,      paste("files/TestTarget_",fileID,".csv",sep=""), row.names = TRUE)
+
+#errores finales de entrenemiento y test
+write.csv( tail(iterativeErrors, n=1) ,      paste("files/FinalErrors_",fileID,".csv",sep=""), row.names = TRUE)
 
 
 #salidas esperadas de test codificadas en tres columnas (Target)
-write.csv(testTarget ,      paste("TestTargetCod_",fileID,".csv",sep=""), row.names = TRUE)
+write.csv(testTarget ,      paste("files/TestTargetCod_",fileID,".csv",sep=""), row.names = TRUE)
 
 
 #salidas de test en bruto (nums reales)
-write.csv(testPred ,      paste("TestRawOutputs_",fileID,".csv",sep=""), row.names = TRUE)
+write.csv(testPred ,      paste("files/TestRawOutputs_",fileID,".csv",sep=""), row.names = TRUE)
 
 #salidas de test con la clase
-write.csv(testPredClass,  paste("TestClassOutputs_",fileID,".csv",sep=""),row.names = TRUE)
+write.csv(testPredClass,  paste("files/TestClassOutputs_",fileID,".csv",sep=""),row.names = TRUE)
 
 # matrices de confusi?n
-write.csv(trainCm,        paste("trainCm_",fileID,".csv",sep=""))
-write.csv(testCm,         paste("testCm_",fileID,".csv",sep=""))
+write.csv(trainCm,        paste("files/trainCm_",fileID,".csv",sep=""))
+write.csv(testCm,         paste("files/testCm_",fileID,".csv",sep=""))
 
-
+}
 

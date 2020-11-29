@@ -113,7 +113,149 @@ Se debe hacer un preprocesado de los datos para poder realizar de manera más ef
 Es necesario normalizar los datos de entrada, dado que cada atributo suele tener rangos de valores muy diferentes. Normalizarlos en el intervalo [0,1] evita posibles sesgos generados por esta difencia de rangos de los atributos durante el aprendizaje de la red.
 
 
-\subsection{Preparar los datos para Validación Cruzada}
+\subsection{Preparar los datos para Validación Cruzada Estratificada}
+
+Se realiza esta técnica debido a que las clases están desbalanceadas, por tanto no se puede aplicar la validación cruzada normal y se tiene que llevar a cabo la \textit{estratificada}.
+
+\vspace{2mm}
+
+Para realizar la división de los datos en 4 hojas que mantengan la proporción de instancias de las 3 clases, se crean 4 subconjuntos de las instancias de cada clase y después se junta un subconjunto de cada clase en cada hoja.
+
+\vspace{2mm}
+
+Una vez se tienen las 4 hojas, se crean 4 parejas de ficheros para componer los datos de entrenamiento y test. Combinando las distintas hojas de distinta forma, dejando siempre una para el test. Por último se aleatorizan los datos de entrenamiento para evitar posibles sesgos.
+
+
+
+\section{Experimentación y análisis de resultados}
+
+La experimentación con el \textit{Perceptrón Multicapa} se basa en ir haciendo experimentos de manera progresiva intentado conseguir la mejor configuración posible, de forma que tanto el error de entrenamiento como el error de test sea mínimo. Además, dado que las clases no están balanceadas, se tiene que tener en cuenta a su vez el porcentaje de aciertos, siendo esta última medida sobre el conjunto de test la que se va a usar como determinante de que una configuración es mejor que otro.
+
+\vspace{2mm}
+
+ Para ello se van variando los hiperparámetros de la red: la \textbf{topología} de la red, la \textbf{razón de aprendizaje} (\textit{RA}) y el \textbf{número ciclos máximo}. Los distintos experimentos que se crean mantienen la topología pero se va modificando la \textit{RA} que se utiliza.
+
+\vspace{1mm}
+
+Los resultados que se muestran en las distintas tablas son las medias de resultados de las 4 hojas de la \textit{validación cruzada estratificada}.
+
+\subsection{Experimento 1}
+
+Es el caso base desde el que se parte, se tiene una única capa oculta con 10 neuronas y el número de ciclos máximo es 10000. A continuación en la tabla se muestra los resultados obtenidos para las distintas razones de aprendizaje.
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{RA}}  & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        \textit{0,001}        &  \textit{0,3344952944}       &  \textit{0,7629008897}                & \textit{0,4235530262}& \textit{0,6738700565}      \\ \hline
+        0,0007                &  0,3549707553                &  0,3823117112                         &  0,4343040342       &  0,3219868173               \\ \hline
+        0,01                  &  0,2505371572                &  0,839641527                          &  0,4613691504       &  0,6432438795               \\ \hline
+        0,005                 &  0,2792817569                &  0,7991775295                         &  0,4438048242       &  0,6474811676               \\ \hline
+
+  \end{tabular}
+\end{center}
+
+Los resultados que se obtienen no son muy prometedores, partiendo del primer subexperimento (se denominará como el original) con \textit{RA} de \textit{0,001}, se intenta ir aumentando o disminuyendo su valor en los siguientes subexperimentos para encontrar la mejor \textit{RA} para esta topología. Después de probar con diferentes valores, se concluye con que la mejor \textit{RA} es la original: \textit{0,001}.
+
+\vspace{2mm}
+
+Se ha podido observar que cuando se disminuye la \textit{RA} los errores son similares pero el porcentaje de aciertos, tanto en entrenamiento como en test disminuye prácticamente a la mitad. Esto puede deberse a que en la mayoría de casos está prediciendo la clase mayoritaria (\textbf{nube}), lo cuál hace que el modelo tenga un error que no es del todo malo, pero el porcentaje de aciertos, como es de esperar, es malo.
+
+\vspace{1mm}
+
+Por otro lado, al aumentar la \textit{RA}, en entrenamiento el error disminuye y el porcentaje de aciertos aumenta, lo que puede ser una buena señal. Pero en test el error aumenta y el porcentaje de aciertos disminuye, lo cuál indica un sobreaprendizaje, haciendo que estos modelos sean peores que el original. Aún así, el modelo original muestra también un claro sobreaprendizaje, lo que se intentará reducir en los siguientes experimentos.
+
+
+\subsection{Experimento 2}
+
+Al igual que en el experimento anterior, se tiene una única capa oculta pero se aumenta el número de neuronas a 100 para comprobar si esto afecta positivamente a los resultados. El número de ciclos máximo es 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{RA}}  & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        0,001                 &  0,3410726584                &  0,7643001241                         &  0,4513887673       &  0,6627354049               \\ \hline
+        0,005                 &  0,2828611825                &  0,8001163873                         &  0,4455312415       &  0,6613700565               \\ \hline
+        \textit{0,0008}       &  \textit{0,3488769075}       &  \textit{0,7582428098}                &  \textit{0,4522441869}&  \textit{0,6669256121}               \\ \hline
+        0,0006                &  0,3566408764                &  0,7521984275                         &  0,4524900392       &  0,5525188324               \\ \hline
+
+  \end{tabular}
+\end{center}
+
+Tal y como se ve en la tabla, el aumentar el número de neuronas no ha hecho que los resultados mejoren. Primero se aumenta la \textit{RA}, y en este caso, los valores son muy similares al caso original con \textit{0,001} de \textit{RA}.
+
+\vspace{2mm}
+
+Dado que aumentar la \textit{RA} no genera mejores resultados, se prueba a disminuirla. El tercer subexperimento proporciona mejores resultados en el conjunto de test, por lo que se prueba a disminuir todavía más, pero esto empeora los resultados.
+
+\vspace{1mm}
+
+Por tanto, el mejor subexperimento para la topología de este experimento es el que tiene una \textit{RA} de \textit{0,0008}. Sin embargo, no se observa una mejora respecto al mejor del \textbf{Experimento 1}, por lo que se puede concluir que aumentar el número de neuronas con una única capa no genera un cambio significatvo.
+
+
+\subsection{Experimento 3}
+
+En este caso se aumenta el número de capas ocultas a 2, con 10 neuronas cada una. Se intenta probar si una topología algo más compleja obtiene mejores resultados. El número de ciclos máximo se mantienen a 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{RA}}  & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        0,001                 &  0,3760381966                &  0,3692892613                         &  0,4430659371       &  0,2372175141               \\ \hline
+        \textit{0,01}         &  \textit{0,2229600868}       &  \textit{0,851228533}                 &  \textit{0,5159168119}&  \textit{0,6447975518}    \\ \hline
+        0,03                  &  0,08668297523               &  0,9432547072                         &  0,662564028        &  0,6235640301               \\ \hline
+        0,008                 &  0,2439436857                &  0,8307702255                         &  0,4893574402       &  0,6433145009               \\ \hline
+
+  \end{tabular}
+\end{center}
+
+Al principio, los resultados son muy malos, pues tanto el porcentaje de aciertos en entrenamiento como en test es bajísimo para una \textit{RA} de 0,001. Por lo que se intenta probar a aumentarla de forma drástica a 0,01. Esto hace que se obtengan mejores resultados en entrenamiento, pero en test, aunque también mejora, se sigue apreciando bastante sobreaprendizaje.
+
+\vspace{2mm}
+
+Después se intenta ajustar la \textit{RA} un poco más, tanto aumentándola como disminuyéndola, pero no se obtienen mejores resultados, por lo que el mejor subexperimento para la topología de este experimento es el que tiene una \textit{RA} de \textit{0,01}.
+
+
+\subsection{Experimento 4}
+
+Ya que los resultados que se obtienen con 2 capas ocultas todavía no han conseguido mejorar los valores del caso base, se prueba con una topología ligeramente más compleja: 3 capas ocultas con 10 neuronas cada una. El número de ciclos máximo se mantienen a 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{RA}}  & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        0,001                 &  0,4362842418                &  0,06694599628                        &  0,4363116735       &  0,06694915254              \\ \hline
+        \textit{0,01}         &  \textit{0,2587682627}       &  \textit{0,8191754604}                &  \textit{0,4534598606}&  \textit{0,6962806026}    \\ \hline
+        0,008                 &  0,2977744114                &  0,6734171322                         &  0,4198154056       &  0,5252118644               \\ \hline
+
+  \end{tabular}
+\end{center}
+
+El primer subexperimento no era muy prometedor. Sin embargo, al aumentar la \textit{RA} a \textit{0,01} se consiguen los mejores resultados hasta el momento, mejorando incluso los valores del \textbf{Experimento 1}.
+
+\vspace{2mm}
+
+Dado que aumentar la \textit{RA} parece positivo para esta topología, se prueba a aumentar más su valor. Pero al hacer esto se observa que la evolución del error oscila mucho demostrando así que la \textit{RA} es demasiado alta y por ello no se puede aumentar más allá de 0,01.
+
+\vspace{2mm}
+
+Se intenta probar a disminuirla con el objetivo de encontrar la \textit{RA} óptima, pero los mejores resultados siguen siendo los obtenidos con el experimento que tiene una \textit{RA} de \textit{0,01}. Ya que es con el que mayor porcentaje de aciertos en test genera.
+
+
+\subsection{Experimento 5}
+
+Como con una topología más compleja se consiguen mejores resultados, se decide seguir aumentando esta complejidad con: 4 capas ocultas con 10 neuronas cada una. El número de ciclos máximo se mantienen a 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{RA}}  & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        0,001                 &  0,4363243875                &  0,06694599628                        &  0,4362894737       &  0,06694915254              \\ \hline
+        \textit{0,01}         &  \textit{0,436545285}       &  \textit{0,06694599628}                &  \textit{0,4363050425}&  \textit{0,06694915254}    \\ \hline
+        0,02                  &  0,365291525                &  0,1727989861                          &  0,4416298473       &  0,1692561205               \\ \hline
+
+  \end{tabular}
+\end{center}
 
 
 
@@ -122,10 +264,6 @@ Es necesario normalizar los datos de entrada, dado que cada atributo suele tener
 
 
 
-
-
-
-\section{Experimentación}
 
 \section{Análisis de los resultados}
 
