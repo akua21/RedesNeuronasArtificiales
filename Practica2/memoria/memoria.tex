@@ -323,27 +323,18 @@ La evolución del error sobre el conjunto de test y el conjunto de entrenamiento
 \centering
 \begin{minipage}{.52\textwidth}
   \centering
-  \includegraphics[width=.9\linewidth]{Images/best_fold1.png}
+  \includegraphics[width=.8\linewidth]{Images/best_fold1.png}
   \caption*{Hoja 1}
-\end{minipage}%
-\begin{minipage}{.52\textwidth}
-  \centering
-  \includegraphics[width=.9\linewidth]{Images/best_fold2.png}
-  \caption*{Hoja 2}
-\end{minipage}
-\end{figure}
 
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.52\textwidth}
-  \centering
-  \includegraphics[width=.9\linewidth]{Images/best_fold3.png}
+  \includegraphics[width=.8\linewidth]{Images/best_fold3.png}
   \caption*{Hoja 3}
 \end{minipage}%
 \begin{minipage}{.52\textwidth}
   \centering
-  \includegraphics[width=.9\linewidth]{Images/best_fold4.png}
+  \includegraphics[width=.8\linewidth]{Images/best_fold2.png}
+  \caption*{Hoja 2}
+
+  \includegraphics[width=.8\linewidth]{Images/best_fold4.png}
   \caption*{Hoja 4}
 \end{minipage}
 \end{figure}
@@ -362,6 +353,48 @@ Se cree que en los primeros ciclos, cuando el error se mantiene estable, quiere 
 \vspace{1mm}
 
 La evolución del error de todos estos experimentos 'malos' tienen una forma muy parecida, que es la siguiente:
+
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=.4\linewidth]{Images/fail.png}
+  \caption*{Hoja que no supera el umbral}
+\end{figure}
+
+
+
+
+
+\subsection{Comparativa de los mejores experimentos}
+
+Tal y como se mencionaba al principio de la sección de  \textit{Experimentación y análisis de los resultados}, la medida que se ha usado como determinante a la hora de decidir qué experimento es mejor que otro es el porcentaje de aciertos en el conjunto de test.
+
+\vspace{2mm}
+
+Por ello, se muestra en la siguiente gráfica una comparativa de estos resultados para los mejores experimentos:
+
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=.7\linewidth]{Images/p_acierto_medio_test.png}
+\end{figure}
+
+Gracias a esta gráfica se puede ver cómo de buenos son los mejores experimentos obtenidos. Se ve que la diferencia entre el mejor (Experimento 4-2) y los siguientes 3 mejores no es muy grande, pues sus porcentajes son ligeramente menores. Salvo el Experimento 5-3, ya que obtiene un porcentaje muy pequeño.
+
+\vspace{2mm}
+
+A continuación se va a mostrar una gráfica comparativa de los resultados para cada experimento dividido por hojas, así como la media de hojas:
+
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=.7\linewidth]{Images/p_acierto_cada_hoja_test.png}
+\end{figure}
+
+Como se puede apreciar por los distintos experimentos, y se confirma con la media por experimento, la \textit{Hoja 2} es la que tiene más dificultad para clasificar correctamente a los individuos, mientras que la \textit{Hoja 4} es la que mejor lo hace.
+
+\vspace{1mm}
+
+Esto se debe a la generación y organización aleatoria de las hojas, que hacen que unas sean más diferentes respecto a los conjuntos de entrenamiento, y otras sean más similares.
+
+
 
 
 
