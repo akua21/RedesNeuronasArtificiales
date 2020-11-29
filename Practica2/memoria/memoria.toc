@@ -9,5 +9,6 @@
 \contentsline {subsection}{\numberline {3.3}Experimento 3}{5}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Experimento 4}{5}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Experimento 5}{5}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Análisis de los resultados}{6}{section.4}%
-\contentsline {section}{\numberline {5}Conclusión}{6}{section.5}%
+\contentsline {subsection}{\numberline {3.6}Experimento para intentar reducir el sobreaprendizaje}{6}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Análisis del mejor experimeto}{6}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Conclusión}{7}{section.4}%

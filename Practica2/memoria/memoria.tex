@@ -3,7 +3,8 @@
 \usepackage{helvet}
 \usepackage{multicol}
 \renewcommand{\familydefault}{\sfdefault}
-
+\usepackage{changepage}
+\usepackage{geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                   Plantilla Prácticas UC3M                               %%%
@@ -129,7 +130,7 @@ Una vez se tienen las 4 hojas, se crean 4 parejas de ficheros para componer los 
 
 \section{Experimentación y análisis de resultados}
 
-La experimentación con el \textit{Perceptrón Multicapa} se basa en ir haciendo experimentos de manera progresiva intentado conseguir la mejor configuración posible, de forma que tanto el error de entrenamiento como el error de test sea mínimo. Además, dado que las clases no están balanceadas, se tiene que tener en cuenta a su vez el porcentaje de aciertos, siendo esta última medida sobre el conjunto de test la que se va a usar como determinante de que una configuración es mejor que otro.
+La experimentación con el \textit{Perceptrón Multicapa} se basa en ir haciendo experimentos de manera progresiva intentado conseguir la mejor configuración posible, de forma que tanto el error de entrenamiento como el error de test sea mínimo. Además, dado que las clases no están balanceadas, se tiene que tener en cuenta a su vez el porcentaje de aciertos, siendo esta última medida sobre el conjunto de test la que se va a usar como determinante para decidir qué configuración es mejor que otra.
 
 \vspace{2mm}
 
@@ -137,11 +138,11 @@ La experimentación con el \textit{Perceptrón Multicapa} se basa en ir haciendo
 
 \vspace{1mm}
 
-Los resultados que se muestran en las distintas tablas son las medias de resultados de las 4 hojas de la \textit{validación cruzada estratificada}.
+Los resultados que se muestran en las distintas tablas son las medias de resultados de las 4 hojas de la \textit{validación cruzada estratificada}. Destacar que el número de ciclos máximos se fija a 10000 en un primer momento, y se probará a modificarlo más adelante.
 
 \subsection{Experimento 1}
 
-Es el caso base desde el que se parte, se tiene una única capa oculta con 10 neuronas y el número de ciclos máximo es 10000. A continuación en la tabla se muestra los resultados obtenidos para las distintas razones de aprendizaje.
+Es el caso base desde el que se parte, se tiene \textbf{una única capa oculta con 10 neuronas}. A continuación en la tabla se muestra los resultados obtenidos para las distintas razones de aprendizaje.
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
@@ -168,7 +169,7 @@ Por otro lado, al aumentar la \textit{RA}, en entrenamiento el error disminuye y
 
 \subsection{Experimento 2}
 
-Al igual que en el experimento anterior, se tiene una única capa oculta pero se aumenta el número de neuronas a 100 para comprobar si esto afecta positivamente a los resultados. El número de ciclos máximo es 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+Al igual que en el experimento anterior, se tiene una única capa oculta pero se aumenta el \textbf{número de neuronas a 100} para comprobar si esto afecta positivamente a los resultados. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
@@ -195,7 +196,7 @@ Por tanto, el mejor subexperimento para la topología de este experimento es el 
 
 \subsection{Experimento 3}
 
-En este caso se aumenta el número de capas ocultas a 2, con 10 neuronas cada una. Se intenta probar si una topología algo más compleja obtiene mejores resultados. El número de ciclos máximo se mantienen a 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+En este caso se aumenta el \textbf{número de capas ocultas a 2, con 10 neuronas cada una}. Se intenta probar si una topología algo más compleja obtiene mejores resultados. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
@@ -218,7 +219,7 @@ Después se intenta ajustar la \textit{RA} un poco más, tanto aumentándola com
 
 \subsection{Experimento 4}
 
-Ya que los resultados que se obtienen con 2 capas ocultas todavía no han conseguido mejorar los valores del caso base, se prueba con una topología ligeramente más compleja: 3 capas ocultas con 10 neuronas cada una. El número de ciclos máximo se mantienen a 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+Ya que los resultados que se obtienen con 2 capas ocultas todavía no han conseguido mejorar los valores del caso base, se prueba con una topología ligeramente más compleja: \textbf{3 capas ocultas} con 10 neuronas cada una. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
@@ -244,33 +245,112 @@ Se intenta probar a disminuirla con el objetivo de encontrar la \textit{RA} ópt
 
 \subsection{Experimento 5}
 
-Como con una topología más compleja se consiguen mejores resultados, se decide seguir aumentando esta complejidad con: 4 capas ocultas con 10 neuronas cada una. El número de ciclos máximo se mantienen a 10000, los resultados obtenidos para las distintas razones de aprendizaje son:
+Como con una topología más compleja se consiguen mejores resultados, se decide seguir aumentando esta complejidad con: \textbf{4 capas ocultas} con 10 neuronas cada una. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
         \textit{\textbf{RA}}  & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
         0,001                 &  0,4363243875                &  0,06694599628                        &  0,4362894737       &  0,06694915254              \\ \hline
-        \textit{0,01}         &  \textit{0,436545285}       &  \textit{0,06694599628}                &  \textit{0,4363050425}&  \textit{0,06694915254}    \\ \hline
-        0,02                  &  0,365291525                &  0,1727989861                          &  0,4416298473       &  0,1692561205               \\ \hline
+        0,01                  &  0,436545285                 &  0,06694599628                        &  0,4363050425       &  0,06694915254              \\ \hline
+        \textit{0,02}         &  \textit{0,365291525}        &  \textit{0,1727989861}                &  \textit{0,4416298473}&  \textit{0,1692561205}    \\ \hline
 
   \end{tabular}
 \end{center}
 
+Los resultados de los distintos subexperimentos no son buenos en ningún caso. Si se intenta introducir una \textit{RA} mayor a \textit{0,02}, los valores de error varían demasiado, indicando que es demasiado alta. Por debajo de \textit{0,01} se estancan en valores muy similares a los obtenidos con \textit{0,01} y \textit{0,001}, por tanto, se puede decir que esta topología no es buena para resolver el problema planteado.
+
+\vspace{1mm}
+
+A pesar de que su valor es muy inferior al de resto de experimentos, el mejor resultado es el que se obtiene con una \textit{RA} de \textit{0,02}.
+
+
+
+\subsection{Experimento para intentar reducir el sobreaprendizaje}
+
+Como que se aprecia que todos los experimentos sufren de bastante sobreaprendizaje, se intenta reducirlo \textit{limitando el número de ciclos en el entrenamiento}. Se limita al número de ciclos en el que obtienen su error más bajo en el conjunto de test. Esto se va a realizar sobre los mejores subexperimentos de cada experimento, listados en la siguiente tabla resumen:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{Nombre Exp.}}     & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        Exp. 1-1         &  0,3344952944       &  0,7629008897                &  0,4235530262   &  0,6738700565     \\ \hline
+        Exp. 2-3         &  0,2229600868       &  0,851228533                 &  0,5159168119   &  0,6447975518     \\ \hline
+        Exp. 3-2         &  0,2229600868       &  0,851228533                 &  0,5159168119   &  0,6447975518     \\ \hline
+        Exp. 4-2         &  0,2587682627       &  0,8191754604                &  0,4534598606   &  0,6962806026     \\ \hline
+        Exp. 5-3         &  0,365291525        &  0,1727989861                &  0,4416298473   &  0,1692561205     \\ \hline
+  \end{tabular}
+\end{center}
+
+
+Para llevar a cabo esta tarea se realiza el mismo acercamiento que se hizo en la primera práctica para poder quedarnos con el número de ciclos óptimo que minimiza el error. Se repiten los subexperimentos de la anterior tabla pero esta vez aplicando esta técnica.
+
+
+\begin{center}
+  \begin{adjustwidth}{-1.4cm}{}
+    \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+          \textit{\textbf{Nombre Exp.}}     & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test} & \textbf{Núm. ciclos} \\ \hline
+          Exp. 1-1         &  0,3658924266       &  0,4649493068                &  0,4014796408   &  0,5585922787   &  7180,25  \\ \hline
+          Exp. 2-3         &  0,3983796585       &  0,2805891786                &  0,4175185209   &  0,2322033898   &  3754     \\ \hline
+          Exp. 3-2         &  0,3545379908       &  0,3487766398                &  0,3796682922   &  0,33173258     &  2142,75  \\ \hline
+          Exp. 4-2         &  0,3486060242       &  0,3504034761                &  0,3776217959   &  0,3294020716   &  4918,75  \\ \hline
+          Exp. 5-3         &  0,3860130839       &  0,1727989861                &  0,4110949435   &  0,1692561205   &  8145     \\ \hline
+    \end{tabular}
+  \end{adjustwidth}
+\end{center}
+
+Se puede apreciar en la tabla anterior que hacer esto no genera mejores resultados. De hecho, genera peores. Esto se debe a que minimizar el error que comete la red no es lo mismo que aumentar el porcentaje de aciertos, dado que lo que se busca es maximizar este porcentaje de aciertos, usar esta técnica no resulta apropiada en este caso.
+
+
+
+\subsection{Análisis del mejor experimeto}
+
+El experimento que genera mejores resultados es el \textbf{Experimento 4-2}, con un porcentaje de aciertos sobre el conjunto de test de \textbf{0,6962806026}, una topología de 3 capas ocultas con 10 neuronas cada una, una \textit{RA} de 0,01 y 10000 ciclos.
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textit{\textbf{Nombre Exp.}}     & \textbf{Error entrenamiento} & \textbf{\% de aciertos entrenamiento} & \textbf{Error test} & \textbf{\% de aciertos test}\\ \hline
+        Exp. 4-2         &  0,2587682627       &  0,8191754604                &  0,4534598606   &  0,6962806026     \\ \hline
+  \end{tabular}
+\end{center}
+
+La evolución del error sobre el conjunto de test y el conjunto de entrenamiento a lo largo del aprendizaje se puede ver en las siguientes gráficas para cada una de las hojas:
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/ex1.png}
+  \caption*{Ex. 1}
+\end{minipage}%
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/ex1b.png}
+  \caption*{Ex. 1\_b}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/ex1.png}
+  \caption*{Ex. 1}
+\end{minipage}%
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/ex1b.png}
+  \caption*{Ex. 1\_b}
+\end{minipage}
+\end{figure}
 
 
 
 
 
-
-
-
-\section{Análisis de los resultados}
-
-Evolución de los errores de entrenamiento y test a lo largo del aprendizaje solo para algunos (o algún) de los experimentos (los más significativos).
-
-
-Porcentajes de aciertos de entrenamiento y test al finalizar el aprendizaje de todos los experimentos realizados.
 
 \section{Conclusión}
 
