@@ -3,7 +3,7 @@ library(RSNNS)
 # Funciones
 
 graficaError <- function(iterativeErrors){
-  plot(1:nrow(iterativeErrors),iterativeErrors[,1], type="l", main="Evoluci?n del error",
+  plot(1:nrow(iterativeErrors),iterativeErrors[,1], type="l", main="Evolución del error",
        ylab="MSE (3 salidas)",xlab="Ciclos",
        ylim=c(min(iterativeErrors),max(iterativeErrors)))
   lines(1:nrow(iterativeErrors),iterativeErrors[,2], col="red")
@@ -44,8 +44,8 @@ testInput  <- as.matrix(testInput )
 
 
 #SELECCION DE LOS HIPERPARAMETROS DE LA RED
-topologia        <- c(10, 10, 10, 10)
-razonAprendizaje <- 0.025
+topologia        <- c(10, 10, 10)
+razonAprendizaje <- 0.01
 ciclosMaximos    <- 10000
 
 ## generar un nombre de fichero que incluya los hiperpar?metros
@@ -63,7 +63,6 @@ model <- mlp(x= trainInput,
              learnFuncParams=c(razonAprendizaje),
              shufflePatterns = F
 )
-
 
 #TABLA CON LOS ERRORES POR CICLO de train y test correspondientes a las 4 salidas
 iterativeErrors <- data.frame(MSETrain= (model$IterativeFitError/nrow(trainSet)),
@@ -124,7 +123,7 @@ write.csv(iterativeErrors,paste("files/iterativeErrors_",fileID,".csv",sep=""))
 write.csv( testSet[,nTarget] ,      paste("files/TestTarget_",fileID,".csv",sep=""), row.names = TRUE)
 
 #errores finales de entrenemiento y test
-write.csv( tail(iterativeErrors, n=1) ,      paste("files/FinalErrors_",fileID,".csv",sep=""), row.names = TRUE)
+write.csv( c(tail(iterativeErrors, n=1), nuevosCiclos) ,      paste("files/FinalErrors_",fileID,".csv",sep=""), row.names = TRUE)
 
 
 #salidas esperadas de test codificadas en tres columnas (Target)
