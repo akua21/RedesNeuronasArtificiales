@@ -5,6 +5,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{changepage}
 \usepackage{geometry}
+\usepackage{caption}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                   Plantilla Prácticas UC3M                               %%%
@@ -322,13 +323,13 @@ La evolución del error sobre el conjunto de test y el conjunto de entrenamiento
 \centering
 \begin{minipage}{.52\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{images/ex1.png}
-  \caption*{Ex. 1}
+  \includegraphics[width=.9\linewidth]{Images/best_fold1.png}
+  \caption*{Hoja 1}
 \end{minipage}%
 \begin{minipage}{.52\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{images/ex1b.png}
-  \caption*{Ex. 1\_b}
+  \includegraphics[width=.9\linewidth]{Images/best_fold2.png}
+  \caption*{Hoja 2}
 \end{minipage}
 \end{figure}
 
@@ -337,18 +338,30 @@ La evolución del error sobre el conjunto de test y el conjunto de entrenamiento
 \centering
 \begin{minipage}{.52\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{images/ex1.png}
-  \caption*{Ex. 1}
+  \includegraphics[width=.9\linewidth]{Images/best_fold3.png}
+  \caption*{Hoja 3}
 \end{minipage}%
 \begin{minipage}{.52\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{images/ex1b.png}
-  \caption*{Ex. 1\_b}
+  \includegraphics[width=.9\linewidth]{Images/best_fold4.png}
+  \caption*{Hoja 4}
 \end{minipage}
 \end{figure}
 
 
+Se observa claramente que, a pesar de que este sea el mejor experimento conseguido, sigue produciendo mucho sobreaprendizaje en el error. En algunos casos más grande que en otros.
 
+\vspace{2mm}
+
+Por ejemplo, la hoja 1 y la hoja 4 son las que sufren menor sobreaprendizaje. Mientras que la hoja 2 y la hoja 3 sufren más sobreaprendizaje, especialmente la 2.
+
+\vspace{2mm}
+
+Se cree que en los primeros ciclos, cuando el error se mantiene estable, quiere decir que la red ha aprendido a determinar que todos, o casi todos, los ejemplos pertenecen a la clase mayoritaria. Es fundamental que un buen modelo sea capaz de superar ese umbral porque si no es capaz de hacerlo, su porcentaje de aciertos en test no podrá superar el valor de 0,07, el cual es muy bajo. Esto ocurre, por ejemplo, en el experimento 4-1, 5-1 y 5-2.
+
+\vspace{1mm}
+
+La evolución del error de todos estos experimentos 'malos' tienen una forma muy parecida, que es la siguiente:
 
 
 
