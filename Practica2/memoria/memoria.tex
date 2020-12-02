@@ -191,6 +191,7 @@ Los resultados que se muestran en las distintas tablas son las medias de resulta
 
 Es el caso base desde el que se parte, se tiene \textbf{una única capa oculta con 10 neuronas}. A continuación en la tabla se muestra los resultados obtenidos para las distintas razones de aprendizaje.
 
+\begin{figure}[!h]
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -204,6 +205,8 @@ Es el caso base desde el que se parte, se tiene \textbf{una única capa oculta c
 
   \end{tabular}
 \end{center}
+\caption*{Tabla resultados Experimento 1}
+\end{figure}
 
 Los resultados que se obtienen no son muy prometedores, partiendo del primer subexperimento (se denominará como el original) con \textit{RA} de \textit{0,001}, se intenta ir aumentando o disminuyendo su valor en los siguientes subexperimentos para encontrar la mejor \textit{RA} para esta topología. Después de probar con diferentes valores, se concluye con que la mejor \textit{RA} es la original: \textit{0,001}.
 
@@ -220,6 +223,7 @@ Por otro lado, al aumentar la \textit{RA}, en entrenamiento el error disminuye y
 
 Al igual que en el experimento anterior, se tiene una única capa oculta pero se aumenta el \textbf{número de neuronas a 100} para comprobar si esto afecta positivamente a los resultados. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
+\begin{figure}[!h]
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -233,6 +237,8 @@ Al igual que en el experimento anterior, se tiene una única capa oculta pero se
 
   \end{tabular}
 \end{center}
+\caption*{Tabla resultados Experimento 2}
+\end{figure}
 
 Tal y como se ve en la tabla, el aumentar el número de neuronas no ha hecho que los resultados mejoren. Primero se aumenta la \textit{RA}, y en este caso, los valores son muy similares al caso original con \textit{0,001} de \textit{RA}.
 
@@ -249,6 +255,7 @@ Por tanto, el mejor subexperimento para la topología de este experimento es el 
 
 En este caso se aumenta el \textbf{número de capas ocultas a 2, con 10 neuronas cada una}. Se intenta probar si una topología algo más compleja obtiene mejores resultados. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
+\begin{figure}[!h]
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -262,6 +269,8 @@ En este caso se aumenta el \textbf{número de capas ocultas a 2, con 10 neuronas
 
   \end{tabular}
 \end{center}
+\caption*{Tabla resultados Experimento 3}
+\end{figure}
 
 Al principio, los resultados son muy malos, pues tanto el porcentaje de aciertos en entrenamiento como en test es bajísimo para una \textit{RA} de 0,001. Por lo que se intenta probar a aumentarla de forma drástica a 0,01. Esto hace que se obtengan mejores resultados en entrenamiento, pero en test, aunque también mejora, se sigue apreciando bastante sobreaprendizaje.
 
@@ -274,6 +283,7 @@ Después se intenta ajustar la \textit{RA} un poco más, tanto aumentándola com
 
 Ya que los resultados que se obtienen con 2 capas ocultas todavía no han conseguido mejorar los valores del caso base, se prueba con una topología ligeramente más compleja: \textbf{3 capas ocultas} con 10 neuronas cada una. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
+\begin{figure}[!h]
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -286,6 +296,8 @@ Ya que los resultados que se obtienen con 2 capas ocultas todavía no han conseg
 
   \end{tabular}
 \end{center}
+\caption*{Tabla resultados Experimento 4}
+\end{figure}
 
 El primer subexperimento no era muy prometedor. Sin embargo, al aumentar la \textit{RA} a \textit{0,01} se consiguen los mejores resultados hasta el momento, mejorando incluso los valores del \textbf{Experimento 1}.
 
@@ -302,6 +314,7 @@ Se intenta probar a disminuirla con el objetivo de encontrar la \textit{RA} ópt
 
 Como con una topología más compleja se consiguen mejores resultados, se decide seguir aumentando esta complejidad con: \textbf{4 capas ocultas} con 10 neuronas cada una. Los resultados obtenidos para las distintas razones de aprendizaje son:
 
+\begin{figure}[!h]
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -314,6 +327,8 @@ Como con una topología más compleja se consiguen mejores resultados, se decide
 
   \end{tabular}
 \end{center}
+\caption*{Tabla resultados Experimento 5}
+\end{figure}
 
 Los resultados de los distintos subexperimentos no son buenos en ningún caso. Si se intenta introducir una \textit{RA} mayor a \textit{0,02}, los valores de error varían demasiado, indicando que es demasiado alta. Por debajo de \textit{0,01} se estancan en valores muy similares a los obtenidos con \textit{0,01} y \textit{0,001}, por tanto, se puede decir que esta topología no es buena para resolver el problema planteado.
 

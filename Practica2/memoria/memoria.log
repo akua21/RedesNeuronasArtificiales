@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.23)  2 DEC 2020 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.21)  2 DEC 2020 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -564,49 +564,43 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 157.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
 (Font)              scaled to size 9.49997pt on input line 157.
- [4] [5]
-Overfull \hbox (14.66858pt too wide) in paragraph at lines 333--343
+ [4] [5] [6]
+Overfull \hbox (14.66858pt too wide) in paragraph at lines 348--358
  [] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (40.36754pt too wide) in paragraph at lines 354--364
+Overfull \hbox (40.36754pt too wide) in paragraph at lines 369--379
 [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[6]
-Overfull \hbox (14.66858pt too wide) in paragraph at lines 378--383
+Overfull \hbox (14.66858pt too wide) in paragraph at lines 393--398
  [] 
  []
 
-<Images/best_fold1.png, id=125, 499.11469pt x 369.63094pt>
+<Images/best_fold1.png, id=130, 499.11469pt x 369.63094pt>
 File: Images/best_fold1.png Graphic file (type png)
 <use Images/best_fold1.png>
-Package pdftex.def Info: Images/best_fold1.png  used on input line 391.
+Package pdftex.def Info: Images/best_fold1.png  used on input line 406.
 (pdftex.def)             Requested size: 196.36734pt x 145.4245pt.
-<Images/best_fold3.png, id=126, 499.11469pt x 369.63094pt>
+<Images/best_fold3.png, id=131, 499.11469pt x 369.63094pt>
 File: Images/best_fold3.png Graphic file (type png)
 <use Images/best_fold3.png>
-Package pdftex.def Info: Images/best_fold3.png  used on input line 394.
+Package pdftex.def Info: Images/best_fold3.png  used on input line 409.
 (pdftex.def)             Requested size: 196.36734pt x 145.4245pt.
-<Images/best_fold2.png, id=127, 499.11469pt x 369.63094pt>
+<Images/best_fold2.png, id=132, 499.11469pt x 369.63094pt>
 File: Images/best_fold2.png Graphic file (type png)
 <use Images/best_fold2.png>
-Package pdftex.def Info: Images/best_fold2.png  used on input line 399.
+Package pdftex.def Info: Images/best_fold2.png  used on input line 414.
 (pdftex.def)             Requested size: 196.36734pt x 145.4245pt.
-<Images/best_fold4.png, id=128, 499.11469pt x 369.63094pt>
+<Images/best_fold4.png, id=133, 499.11469pt x 369.63094pt>
 File: Images/best_fold4.png Graphic file (type png)
 <use Images/best_fold4.png>
-Package pdftex.def Info: Images/best_fold4.png  used on input line 402.
+Package pdftex.def Info: Images/best_fold4.png  used on input line 417.
 (pdftex.def)             Requested size: 196.36734pt x 145.4245pt.
 
-Overfull \hbox (18.88527pt too wide) in paragraph at lines 389--405
+Overfull \hbox (18.88527pt too wide) in paragraph at lines 404--420
  []$[]$$[]$ 
  []
 
@@ -614,58 +608,58 @@ Overfull \hbox (18.88527pt too wide) in paragraph at lines 389--405
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7]
-<Images/fail.png, id=137, 499.11469pt x 369.63094pt>
+<Images/fail.png, id=143, 499.11469pt x 369.63094pt>
 File: Images/fail.png Graphic file (type png)
 <use Images/fail.png>
-Package pdftex.def Info: Images/fail.png  used on input line 425.
+Package pdftex.def Info: Images/fail.png  used on input line 440.
 (pdftex.def)             Requested size: 188.8096pt x 139.82387pt.
  [8 <./Images/best_fold1.png (PNG copy)> <./Images/best_fold3.png (PNG copy)> <
 ./Images/best_fold2.png (PNG copy)> <./Images/best_fold4.png (PNG copy)> <./Ima
 ges/fail.png (PNG copy)>]
-<Images/p_acierto_medio_test.png, id=146, 602.25pt x 372.39125pt>
+<Images/p_acierto_medio_test.png, id=151, 602.25pt x 372.39125pt>
 File: Images/p_acierto_medio_test.png Graphic file (type png)
 <use Images/p_acierto_medio_test.png>
-Package pdftex.def Info: Images/p_acierto_medio_test.png  used on input line 44
-3.
+Package pdftex.def Info: Images/p_acierto_medio_test.png  used on input line 45
+8.
 (pdftex.def)             Requested size: 330.42041pt x 204.31578pt.
-<Images/p_acierto_cada_hoja_test.png, id=147, 602.25pt x 372.39125pt>
+<Images/p_acierto_cada_hoja_test.png, id=152, 602.25pt x 372.39125pt>
 File: Images/p_acierto_cada_hoja_test.png Graphic file (type png)
 <use Images/p_acierto_cada_hoja_test.png>
 Package pdftex.def Info: Images/p_acierto_cada_hoja_test.png  used on input lin
-e 455.
+e 470.
 (pdftex.def)             Requested size: 330.42041pt x 204.31578pt.
  [9 <./Images/p_acierto_medio_test.png> <./Images/p_acierto_cada_hoja_test.png>
 ] 
 AED: lastpage setting LastPage
 [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 492.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 492.
  (./memoria.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 492.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 492.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: A0C245CE02DED831CA1BBBDC38D445D8;994.
  ) 
 Here is how much of TeX's memory you used:
- 9214 strings out of 483121
- 139088 string characters out of 5964354
- 433874 words of memory out of 5000000
- 24023 multiletter control sequences out of 15000+600000
+ 9219 strings out of 481239
+ 139172 string characters out of 5920377
+ 435694 words of memory out of 5000000
+ 24266 multiletter control sequences out of 15000+600000
  565885 words of font info for 48 fonts, out of 8000000 for 9000
- 40 hyphenation exceptions out of 8191
- 42i,11n,49p,798b,388s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1141 hyphenation exceptions out of 8191
+ 42i,11n,49p,798b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvro8a.pfb>
-Output written on memoria.pdf (10 pages, 223329 bytes).
+Output written on memoria.pdf (10 pages, 223561 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
  153 words of extra memory for PDF output out of 10000 (max. 10000000)
 
