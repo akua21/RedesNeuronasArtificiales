@@ -45,7 +45,7 @@ testInput  <- as.matrix(testInput )
 
 #SELECCION DE LOS HIPERPARAMETROS DE LA RED
 topologia        <- c(10, 10, 10)
-razonAprendizaje <- 0.001
+razonAprendizaje <- 0.01
 ciclosMaximos    <- 10000
 
 ## generar un nombre de fichero que incluya los hiperpar?metros
@@ -123,7 +123,7 @@ write.csv(iterativeErrors,paste("files/iterativeErrors_",fileID,".csv",sep=""))
 write.csv( testSet[,nTarget] ,      paste("files/TestTarget_",fileID,".csv",sep=""), row.names = TRUE)
 
 #errores finales de entrenemiento y test
-write.csv( c(tail(iterativeErrors, n=1), nuevosCiclos) ,      paste("files/FinalErrors_",fileID,".csv",sep=""), row.names = TRUE)
+write.csv( c(tail(iterativeErrors, n=1)) ,      paste("files/FinalErrors_",fileID,".csv",sep=""), row.names = TRUE)
 
 
 #salidas esperadas de test codificadas en tres columnas (Target)
