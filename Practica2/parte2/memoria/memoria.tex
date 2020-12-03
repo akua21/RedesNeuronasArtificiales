@@ -1,0 +1,122 @@
+\documentclass{uc3mpracticas}
+
+\usepackage{helvet}
+\usepackage{multicol}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{xcolor,colortbl}
+
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{LightGreen}{rgb}{0.29,1,0.39}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                   Plantilla Prácticas UC3M                               %%%
+%%%                Universidad Carlos III de Madrid                          %%%
+%%%                   Alejandro Valverde Mahou                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Permitir cabeceras y pie de páginas personalizados
+\pagestyle{fancy}
+
+%Path por defecto de las imágenes
+\graphicspath{ {./images/} }
+
+%Declarar formato de encabezado y pie de página de las páginas del documento
+\fancypagestyle{doc}{
+  %Cabecera
+  \headerpr[1]{Problema de Clasificación: Parte II}{}{Redes de Neuronas Artificiales}
+  %Pie de Página
+  \footerpr{}{\textbf{UC3M}}{{\thepage} de \pageref{LastPage}}
+}
+
+%Declarar formato de encabezado y pie del título e indice
+\fancypagestyle{titu}{%
+  %Cabecera
+  \headerpr{}{}{}
+  %Pie de Página
+  \footerpr{}{}{}
+}
+
+
+\appto\frontmatter{\pagestyle{titu}}
+\appto\mainmatter{\pagestyle{doc}}
+
+
+\begin{document}
+  %Comienzo formato título
+  \frontmatter
+
+
+  %Portada 1 (Centrado todo)
+  \centeredtitle{Images/LogoUC3M.png}{Grado en Ingeniería Informática}{Curso 2020/2021}{Redes de Neuronas Artificiales}{Problema de Clasificación: Parte II}{Clasificación de imágenes con Redes Convolucionales}
+
+  \vspace{55mm}
+
+  \authors{Alba Reinders Sánchez}{100383444}{Alejandro Valverde Mahou}{100383383}{}{}{}{}
+
+  \newpage
+
+  %Índice
+  \tableofcontents
+
+  \newpage
+
+  %Comienzo formato documento general
+  \mainmatter
+
+\section{Introducción}
+
+El problema consiste en clasificar imágenes donde las entradas de la red son directamente los píxeles de cada imagen. Se utiliza el conjunto de datos \textit{CIFAR10}, compuesto por \textbf{60000} imágenes en color (3 canales, \textit{RGB}) de \textbf{32x32} píxeles. El conjunto de datos se divide en 50000 imágenes para entrenamiento y 10000 para test.
+
+\vspace{2mm}
+
+Hay un total de \textbf{10 clases} con 6000 imágenes por clase, por lo que en este caso las clases sí están balanceadas, las diferentes clases son:
+
+\begin{itemize}
+  \begin{multicols}{5}
+  \item 0 $\rightarrow$ \textit{airplane}
+  \item 5 $\rightarrow$ \textit{dog}
+  \item 1 $\rightarrow$ \textit{automobile}
+  \item 6 $\rightarrow$ \textit{frog}
+  \item 2 $\rightarrow$ \textit{bird}
+  \item 7 $\rightarrow$ \textit{horse}
+  \item 3 $\rightarrow$ \textit{cat}
+  \item 8 $\rightarrow$ \textit{ship}
+  \item 4 $\rightarrow$ \textit{deer}
+  \item 9 $\rightarrow$ \textit{truck}
+  \end{multicols}
+\end{itemize}
+
+
+El objetivo de la práctica es entrenar diferentes arquitecturas de \textbf{Perceptrón Multicapa} y \textbf{Redes de Neuronas Convolucionales} para analizar cómo influyen sus hiperparámetros en la resolución del problema de clasificación. Además de comparar sus resultados para comprobar cuál de las dos arquitecturas es más efectiva.
+
+
+
+\section{Diseño, entrenamiento y evaluación del PM}
+
+Estas dos secciones deben contener una breve  descripción  de  los  experimentos  realizados,  los  resultados  obtenidos  y  su análisis.
+
+\section{Diseño, entrenamiento y evaluación de la CNN}
+
+
+
+\section{Comparación PM y CNN}
+
+
+
+
+\section{Conclusión}
+
+
+
+
+
+
+
+
+
+\end{document}
