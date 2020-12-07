@@ -2,5 +2,5 @@
 \contentsline {section}{\numberline {1}Introducción}{3}{section.1}%
 \contentsline {section}{\numberline {2}Diseño, entrenamiento y evaluación del PM}{3}{section.2}%
 \contentsline {section}{\numberline {3}Diseño, entrenamiento y evaluación de la CNN}{4}{section.3}%
-\contentsline {section}{\numberline {4}Comparación PM y CNN}{4}{section.4}%
-\contentsline {section}{\numberline {5}Conclusión}{4}{section.5}%
+\contentsline {section}{\numberline {4}Comparación PM y CNN}{5}{section.4}%
+\contentsline {section}{\numberline {5}Conclusión}{5}{section.5}%
