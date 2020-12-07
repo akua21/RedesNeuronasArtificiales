@@ -12,6 +12,8 @@
 \definecolor{LightCyan}{rgb}{0.88,1,1}
 \definecolor{LightGreen}{rgb}{0.29,1,0.39}
 
+\newcolumntype{g}{>{\columncolor{Gray}}l}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                   Plantilla Prácticas UC3M                               %%%
@@ -98,11 +100,105 @@ El objetivo de la práctica es entrenar diferentes arquitecturas de \textbf{Perc
 
 \section{Diseño, entrenamiento y evaluación del PM}
 
-Estas dos secciones deben contener una breve  descripción  de  los  experimentos  realizados,  los  resultados  obtenidos  y  su análisis.
+Inicialmente se intenta resolver este problema con el método de 'fuerza bruta'. Es decir, se aplana la información de los píxeles de las imágenes de entrada en un único vector y se entrena un \textbf{Perceptrón Multicapa} con estas entradas.
+
+\vspace{2mm}
+
+Para estudiar la eficacia de este acercamiento se realiza una pequeña experimentación probando distintas arquitecturas de red:
+
+\begin{figure}[!h]
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \rowcolor{Gray}
+        \textbf{Arquitectura} & \textbf{\textit{epochs}}& \textbf{\textit{Accuracy} entrenamiento} & \textbf{\textit{Accuracy} test} & \textbf{\textit{Loss} entrenamiento} & \textbf{\textit{Loss} test}\\ \hline \hline
+        (50)                  & 25                      &  0.5552                                  &  0.4743                         &  1.2606                              &  1.5040            \\ \hline
+        (25)                  & 21                      &  0.5039                                  &  0.4493                         &  1.4128                              &  1.5678            \\ \hline
+        (100)                 & 16                      &  0.5543                                  &  0.4922                         &  1.9684                              &  1.4483            \\ \hline
+        (100,100)             & 30                      &  0.6442                                  &  0.5045                         &  0.9995                              &  1.4618            \\ \hline
+        \rowcolor{LightGreen}
+        (100, 100, 100)       & 23                      &  0.5900                                  &  0.5081                         &  1.1478                              &  1.4276            \\ \hline
+  \end{tabular}
+\end{center}
+\caption*{Tabla Experimentos PM}
+\end{figure}
+
+En cada uno de los experimentos se ajusta manualmente el número de \textit{epochs} óptimos para encontrar los mejores resultados posibles.
+
+\vspace{2mm}
+
+Se parte de la arquitectura dada en el tutorial y se prueba a modificar sus hiperparámetros a partir de ella. Primero se prueba a disminuir el número de neuronas, lo que no genera mejores resultados. Por tanto se prueba a aumentarlas y el \textit{accuracy} mejora, entonces se decide añadir una capa oculta más y también genera mejores resultados.
+
+\vspace{1mm}
+
+Como último experimento se configura una red con 3 capas ocultas de 100 neuronas cada una, este obtiene los mejores resultados. Sin embargo, el \textit{accuracy} en test que alcanza se queda estancado entorno a 0,5.
+
+\vspace{2mm}
+
+Tras esta experimentación se puede concluir que aumentar la complejidad de la arquitectura de la red, tanto en capas ocultas como en neuronas, hace que genere mejores resultados. Aunque no consigue superar un umbral, por lo que la utilización del \textit{PM} para resolver este problema no es del todo eficaz.
+
+
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{Images/accuracyPM.png}
+  \caption*{\textit{Accuracy} en entrenamiento y test del \textit{PM}}
+\end{minipage}%
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{Images/lossPM.png}
+  \caption*{\textit{Loss} en entrenamiento y test del \textit{PM}}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[!h]
+\begin{center}
+  \begin{tabular}{|g|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \rowcolor{Gray}
+    Real $\;$\textbackslash  $\;$ Predicho  & \textbf{Airplane} & \textbf{Automobile} & \textbf{Bird} & \textbf{Cat} & \textbf{Deer} & \textbf{Dog} & \textbf{Frog} & \textbf{Horse} & \textbf{Ship} & \textbf{Truck} \\ \hline
+            \textbf{Airplane}               &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Automobile}             &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Bird}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Cat}                    &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Deer}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Dog}                    &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Frog}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Horse}                  &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Ship}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Truck}                  &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+      \end{tabular}
+\end{center}
+\caption*{Matriz de confusión mejor experimeto \textit{PM}}
+\end{figure}
+
+
 
 \section{Diseño, entrenamiento y evaluación de la CNN}
 
-
+\begin{figure}[!h]
+\begin{center}
+  \begin{tabular}{|g|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \rowcolor{Gray}
+    Real $\;$\textbackslash  $\;$ Predicho  & \textbf{Airplane} & \textbf{Automobile} & \textbf{Bird} & \textbf{Cat} & \textbf{Deer} & \textbf{Dog} & \textbf{Frog} & \textbf{Horse} & \textbf{Ship} & \textbf{Truck} \\ \hline
+            \textbf{Airplane}               &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Automobile}             &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Bird}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Cat}                    &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Deer}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Dog}                    &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Frog}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Horse}                  &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Ship}                   &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+            \textbf{Truck}                  &                 &                   &             &            &             &            &             &              &             &                \\ \hline
+      \end{tabular}
+\end{center}
+\caption*{Matriz de confusión mejor experimeto \textit{CNN}}
+\end{figure}
 
 \section{Comparación PM y CNN}
 
