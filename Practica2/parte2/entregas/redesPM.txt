@@ -42,7 +42,7 @@ historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq
                       validation_data=(test_images, test_labels))
 
 --------------------------------------------------------------------------------
-Experimento 1 PM
+Experimento 3 PM
 
 def create_simple_pm():
   #modelo simple de pm
@@ -64,7 +64,7 @@ historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq
                       validation_data=(test_images, test_labels))
 
 --------------------------------------------------------------------------------
-Experimento 1 PM
+Experimento 4 PM
 
 def create_simple_pm():
   #modelo simple de pm
@@ -87,7 +87,7 @@ historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq
                       validation_data=(test_images, test_labels))
 
 --------------------------------------------------------------------------------
-Experimento 1 PM
+Experimento 5 PM
 
 def create_simple_pm():
   #modelo simple de pm
