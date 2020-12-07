@@ -1,0 +1,325 @@
+Experimento 1 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 20
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+--------------------------------------------------------------------------------
+
+Experimento 2 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 47
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+--------------------------------------------------------------------------------
+
+Experimento 3 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(32, (3, 3), activation='relu',padding='same'))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 20
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+--------------------------------------------------------------------------------
+Experimento 4 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (2, 2), activation='relu',padding='same'))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 14
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+
+--------------------------------------------------------------------------------
+Experimento 5 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (2, 2), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 7
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+
+
+--------------------------------------------------------------------------------
+Experimento 6 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 16
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+--------------------------------------------------------------------------------
+Experimento 7 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.3))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 44
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+
+--------------------------------------------------------------------------------
+Experimento 8 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.5))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.5))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 43
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+--------------------------------------------------------------------------------
+Experimento 9 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 50
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+
+--------------------------------------------------------------------------------
+Experimento 10 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.1))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (3, 3), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.1))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 13
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+
+--------------------------------------------------------------------------------
+Experimento 11 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (4, 4), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (4, 4), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 29
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+
+--------------------------------------------------------------------------------
+Experimento 12 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (5, 5), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (5, 5), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 65
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
+--------------------------------------------------------------------------------
+Experimento 13 CNN
+
+def create_model_simple_cnn():
+  model = models.Sequential()
+  model.add(layers.BatchNormalization(input_shape=(32, 32, 3)))
+  model.add(layers.Conv2D(16, (6, 6), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Conv2D(16, (6, 6), activation='relu',padding='same'))
+  model.add(layers.Dropout(0.2))
+  model.add(layers.MaxPooling2D((2, 2)))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(32, activation='relu'))
+  model.add(layers.Dense(10, activation='softmax'))
+  return model
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3, ),
+            loss='sparse_categorical_crossentropy',
+            metrics=['sparse_categorical_accuracy'])
+
+epochs = 31
+
+historico = model.fit(train_images, train_labels, epochs=epochs, validation_freq=1,
+                      validation_data=(test_images, test_labels))
