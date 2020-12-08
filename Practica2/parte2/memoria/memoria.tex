@@ -159,6 +159,23 @@ En las gráficas siguientes se puede ver la evolución de los valores de \textit
 \end{minipage}
 \end{figure}
 
+Se puede ver que el \textit{accuracy} en entrenamiento seguiría subiendo mientras que en test se queda estancado en 0.5, esto se puede observar mejor en la siguientes gráficas donde se han dejado 100 \textit{epochs} para demostrar esta predicción.
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{Images/accuracyPM-100.png}
+  \caption*{\textit{Accuracy} en entrenamiento y test del \textit{PM}}
+\end{minipage}%
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{Images/lossPM-100.png}
+  \caption*{\textit{Loss} en entrenamiento y test del \textit{PM}}
+\end{minipage}
+\end{figure}
+
+
 
 A continuación se muestra la \textbf{matriz de confusión} resultante de este experimento. Además se añade el \textit{recall} para comprobar la precisión sobre cada una de las clases.
 
@@ -183,10 +200,14 @@ A continuación se muestra la \textbf{matriz de confusión} resultante de este e
 \caption*{Matriz de confusión mejor experimeto \textit{PM}}
 \end{figure}
 
-En esta matriz se puede apreciar que algunas clases como \textit{Frog} o \textit{Sheep} le resultan más fácil de clasificar al modelo. Mientras que otras clases como \textit{Bird}, \textit{Cat} o \textit{Dog} le resultan mucho más complicadas de diferenciar.
 
+En esta matriz se puede apreciar que algunas clases como \textit{Frog} o \textit{Ship} le resultan más fácil de clasificar al modelo. Mientras que otras clases como \textit{Bird}, \textit{Cat} o \textit{Dog} le resultan mucho más complicadas de diferenciar. En la gráfica siguiente se puede ver de forma visual el \textit{recall} de las clases:
 
-
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=.55\linewidth]{Images/recall_clase_PM.png}
+  \caption*{Gráfica \textit{recall} por clase del \textit{PM}}
+\end{figure}
 
 
 
@@ -200,11 +221,10 @@ Una vez se ha experimentado con el \textit{PM} se intenta resolver este problema
 Para estudiar la eficacia de esta aproximación se realiza la siguiente experimentación probando distintas arquitecturas. En cada uno de los experimentos, al igual que en el caso anterior, se ajusta manualmente el número de \textit{epochs} óptimos para encontrar los mejores resultados posibles.
 
 
-\vspace{3mm}
+\vspace{1mm}
 
 \textit{Nota: la definición de la arquitectura sigue la siguiente terminología: $(n_1(k_1, Dd_1), n_2(k_2, Dd_2), ...)$ donde $n_i$ indica el número de filtros, $k_i$ el tamaño del kernel y $d_i$ el dropout}
 
-\newpage
 
 \begin{figure}[!h]
 \begin{center}
@@ -231,12 +251,13 @@ Para estudiar la eficacia de esta aproximación se realiza la siguiente experime
 \caption*{Tabla Experimentos \textit{CNN}}
 \end{figure}
 
+\newpage
 
 Se parte de la arquitectura dada en el tutorial y se prueba a modificar sus hiperparámetros a partir de ella. Tras probar esta configuración inicial se decide probar a añadir una capa de \textit{Dropout} de 0.3 para comprobar si mejoran los resultados, se puede ver que mejoran bastante.
 
 \vspace{2mm}
 
-Después se prueba a duplicar el número de filtros, pero esto no influye demasiado así que se puede decir que esto no es demasiado decisivo a la hora de mejorar los resultados. Por lo que se vuelven a establecer 16 filtros pero se prueba a disminuir el tamaño del kernel a 2. Esto tampoco parece influir en los resultados y por ello se prueba a añadir una capa de \textit{Dropout}, lo que produce una ligera mejora. Dado que cambiar los hiperparámetros de una única capa convolucional no hace que aumente el \textit{accuracy} en test, se decide añadir una segunda capa convolucional. Ambas con 16 filtros, tamaño de kernel 3 y \textit{Dropout} de 0.3, con esta arquitectura se consigue una mejora considerable.
+Después se prueba a duplicar el número de filtros, pero esto no influye demasiado así que se puede decir que este cambio no supone una gran difencia y no es decisivo a la hora de mejorar los resultados. Por lo que se vuelven a establecer 16 filtros pero se prueba a disminuir el tamaño del kernel a 2. Esto tampoco parece influir en gran medida sobre los resultados y por ello se prueba a añadir una capa de \textit{Dropout}, lo que produce una ligera mejora. Dado que cambiar los hiperparámetros de una única capa convolucional no hace que aumente el \textit{accuracy} en test, se decide añadir una segunda capa convolucional. Ambas con 16 filtros, tamaño de kernel 3 y \textit{Dropout} de 0.3, con esta arquitectura se consigue una mejora considerable.
 
 \vspace{2mm}
 
@@ -244,9 +265,55 @@ Como aumentar el número de capas convolucionales ha dado buenos resultados, se 
 
 \vspace{2mm}
 
-A continuación se prueba a modificar el \textit{Dropout}, primero a aumentarlo. Como se ve que no mejora, se prueba a diminuirlo, obteniendo un mejor resultado con un \textit{Dropout} de 0.2. Tras esto se prueba a aumentar el tamaño del kernel
+A continuación se prueba a modificar el \textit{Dropout}, primero a aumentarlo. Como se ve que no mejora, se prueba a diminuirlo, obteniendo un mejor resultado con un \textit{Dropout} de 0.2. Tras esto se prueba a aumentar el tamaño del kernel lo que hace que se obtengan valores muy similares. Finalmente se consigue encontrar la mejor configuración con un kernel de tamaño 5, obteniendo un \textit{accuracy} en test de 0.7226.
 
-61
+\vspace{6mm}
+
+Sobre este mejor experimento se va a realizar dos subexperimentos adicionales utilizando diferentes optimizadores para comprobar la influencia de cada uno de ellos. Así como las gráficas de evolución de los valores de \textit{accuracy} y \textit{loss} durante el aprendizaje de la red.
+
+
+\begin{figure}[!h]
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \rowcolor{Gray}
+        \textbf{Optimizador} & \textbf{\textit{Accuracy} entrenamiento} & \textbf{\textit{Accuracy} test} & \textbf{\textit{Loss} entrenamiento} & \textbf{\textit{Loss} test}\\ \hline \hline
+        \textbf{Adam}        &  0.8179                                  &  0.7226                         &  0.5039                              &  0.8294            \\ \hline
+        \textbf{RMSprop}     &  0.7932                                  &  0.6913                         &  0.5969                              &  0.9287            \\ \hline
+        \textbf{Adagrad}     &  0.5675                                  &  0.5564                         &  1.2356                              &  1.3065            \\ \hline
+  \end{tabular}
+\end{center}
+\caption*{Tabla mejor experimento \textit{CNN} con diferentes optimizadores}
+\end{figure}
+
+
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{Images/accuracyCNN.png}
+  \caption*{\textit{Accuracy} en entrenamiento y test del \textit{CNN}}
+\end{minipage}%
+\begin{minipage}{.52\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{Images/lossCNN.png}
+  \caption*{\textit{Loss} en entrenamiento y test del \textit{CNN}}
+\end{minipage}
+\end{figure}
+
+
+
+Como se puede ver en la tabla y en las gráficas anteriores, el mejor optimizador es \textbf{Adam}, seguido de \textbf{RMSprop} con muy poca diferencia y por último \textbf{Adagrad} con valores muy inferiores al resto.
+
+\vspace{2mm}
+
+Se observa en las gráficas que los valores obtenidos con RMSprop son mucho más erráticos que con Adam, por lo que a pesar de que la diferencia entre ambos parecía pequeña, es mejor Adam porque tiene un comportamiento más estático.
+
+\vspace{3mm}
+
+La tabla siguiente muestra la \textbf{matriz de confusión} corespondiente a los resultados del mejor experimento, junto con el \textit{recall} de cada clase:
+
 
 \begin{figure}[!h]
 \begin{center}
@@ -269,10 +336,40 @@ A continuación se prueba a modificar el \textit{Dropout}, primero a aumentarlo.
 \caption*{Matriz de confusión mejor experimeto \textit{CNN}}
 \end{figure}
 
+En este caso se puede apreciar que sigue teniendo especial dificultad para clasificar las clases \textit{Bird}, \textit{Cat} o \textit{Dog}, pero ahora clasifica con mucha más confianza otras clases, como pueden ser \textit{Ship}, \textit{Truck} o \textit{Automobile}.
+
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=.65\linewidth]{Images/recall_clase_CNN.png}
+  \caption*{Gráfica \textit{recall} por clase del \textit{CNN}}
+\end{figure}
+
+
+
+
 \section{Comparación PM y CNN}
 
+En este apartado se van a comparar los dos aceracmientos propuestos en la práctica, así como evaluar sus resultos, y analizar de forma breve las soluciones hayadas.
 
 
+\begin{figure}[!h]
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \rowcolor{Gray}
+        \textbf{Arquitectura} & \textbf{\textit{epochs}}& \textbf{\textit{Accuracy} entrenamiento} & \textbf{\textit{Accuracy} test} & \textbf{\textit{Loss} entrenamiento} & \textbf{\textit{Loss} test}\\ \hline \hline
+        (100, 100, 100)       & 23                      &  0.5900                                  &  0.5081                         &  1.1478                              &  1.4276            \\ \hline \hline
+        \makecell{(16(5, D0.2), \\ 16(5, D0.2))}& 65   &  0.8179                                  &  0.7226                         &  0.5039                              &  0.8294            \\ \hline
+  \end{tabular}
+\end{center}
+\caption*{Tabla comparativa mejores modelos}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=.7\linewidth]{Images/recall_clase_PM_CNN.png}
+  \caption*{Gráfica \textit{recall} por clase del \textit{PM} vs. \textit{CNN}}
+\end{figure}
 
 \section{Conclusión}
 
