@@ -159,7 +159,7 @@ En las gráficas siguientes se puede ver la evolución de los valores de \textit
 \end{minipage}
 \end{figure}
 
-Se puede ver que el \textit{accuracy} en entrenamiento seguiría subiendo mientras que en test se queda estancado en 0.5, esto se puede observar mejor en la siguientes gráficas donde se han dejado 100 \textit{epochs} para demostrar esta predicción.
+Se puede ver que el \textit{accuracy} en entrenamiento seguiría subiendo mientras que en test se queda estancado en 0.5, esto se puede observar mejor en la siguientes gráficas donde se han dejado 100 \textit{epochs} para demostrar este comportamiento.
 
 \begin{figure}[!h]
 \centering
@@ -336,11 +336,11 @@ La tabla siguiente muestra la \textbf{matriz de confusión} corespondiente a los
 \caption*{Matriz de confusión mejor experimeto \textit{CNN}}
 \end{figure}
 
-En este caso se puede apreciar que sigue teniendo especial dificultad para clasificar las clases \textit{Bird}, \textit{Cat} o \textit{Dog}, pero ahora clasifica con mucha más confianza otras clases, como pueden ser \textit{Ship}, \textit{Truck} o \textit{Automobile}.
+En este caso se puede apreciar que sigue teniendo especial dificultad para clasificar las clases \textit{Bird}, \textit{Cat} o \textit{Dog}, pero ahora clasifica con mucha más confianza otras clases, como pueden ser \textit{Ship}, \textit{Truck} o \textit{Automobile}. En la siguiente gráfica se puede ver visualmente el \textit{recall} por clase:
 
 \begin{figure}[!h]
 \centering
-  \includegraphics[width=.65\linewidth]{Images/recall_clase_CNN.png}
+  \includegraphics[width=.55\linewidth]{Images/recall_clase_CNN.png}
   \caption*{Gráfica \textit{recall} por clase del \textit{CNN}}
 \end{figure}
 
@@ -349,7 +349,11 @@ En este caso se puede apreciar que sigue teniendo especial dificultad para clasi
 
 \section{Comparación PM y CNN}
 
-En este apartado se van a comparar los dos aceracmientos propuestos en la práctica, así como evaluar sus resultos, y analizar de forma breve las soluciones hayadas.
+En este apartado se van a comparar los dos acercamientos propuestos en la práctica, así como evaluar sus resultados, y analizar de forma breve las soluciones encontradas.
+
+\vspace{2mm}
+
+Primero es necesario comparar los mejores resultados obtenidos. Esto se puede ver en la siguiente tabla:
 
 
 \begin{figure}[!h]
@@ -358,12 +362,15 @@ En este apartado se van a comparar los dos aceracmientos propuestos en la práct
     \hline
     \rowcolor{Gray}
         \textbf{Arquitectura} & \textbf{\textit{epochs}}& \textbf{\textit{Accuracy} entrenamiento} & \textbf{\textit{Accuracy} test} & \textbf{\textit{Loss} entrenamiento} & \textbf{\textit{Loss} test}\\ \hline \hline
-        (100, 100, 100)       & 23                      &  0.5900                                  &  0.5081                         &  1.1478                              &  1.4276            \\ \hline \hline
-        \makecell{(16(5, D0.2), \\ 16(5, D0.2))}& 65   &  0.8179                                  &  0.7226                         &  0.5039                              &  0.8294            \\ \hline
+        \textbf{PM} (100, 100, 100)       & 23                      &  0.5900                                  &  0.5081                         &  1.1478                              &  1.4276            \\ \hline \hline
+        \textbf{CNN} \makecell{(16(5, D0.2), \\ 16(5, D0.2))}& 65   &  0.8179                                  &  0.7226                         &  0.5039                              &  0.8294            \\ \hline
   \end{tabular}
 \end{center}
 \caption*{Tabla comparativa mejores modelos}
 \end{figure}
+
+
+Se puede apreciar que el \textit{accuracy} del modelo con \textit{CNN} es mucho superior al del \textit{PM}. Concretamente en el \textit{accuracy} en test, \textit{PM} sólo consigue un valor de \textbf{0.5081} mientras que \textit{CNN} consigue \textbf{0.7226}. Esta medida es la verdaderamente importante a la hora de determianr cómo de bueno es un modelo. A continuación se muestra también una comparativa del \textit{recall} obtenido por cada modelo:
 
 \begin{figure}[!h]
 \centering
@@ -371,10 +378,24 @@ En este apartado se van a comparar los dos aceracmientos propuestos en la práct
   \caption*{Gráfica \textit{recall} por clase del \textit{PM} vs. \textit{CNN}}
 \end{figure}
 
+Se ve que, tal y como se esperaba, el modelo del \textit{CNN} tiene mejores resultados en todos los casos. Tras esta breve comparativa se puede apreciar que los modelos de \textit{Redes Convolucionales} son mucho más efectivos que los modelos de \textit{Perceptrón Multicapa} a la hora de realizar clasificación sobre imágenes.
+
+
 \section{Conclusión}
 
+Esta práctica ha sido de gran utilidad para aprender a realizar clasificación sobre imágenes utilizando dos técnicas distintas con redes de neuronas: un acercamiento más ingénuo, el \textit{Perceptrón Multicapa}, que recibe directamente la información de los píxeles, y otro acercamiento más especializado, a través de las \textit{Redes Convolucionales}.
 
+\vspace{3mm}
 
+Se ha podido ver que la efectividad a la hora de resolver este tipo de problemas para cada acercamiento es diferente, siendo las \textit{Redes Convolucionales} las que mejor son capaz de resolverlos.
+
+\vspace{4mm}
+
+Se ha estudiado la influencia de los hiperparámetros en la resolución del problema, así como realizar una experimentación que ha ido modificando estos parámetros hasta encontrar la configuración que mejor resolvía el problema.
+
+\vspace{2mm}
+
+A pesar de que los resultados obtenidos no superan el 75\% de instancias bien clasificadas, y que no parece un resultado demasiado bueno, hay que tener en cuenta que es un problema en el que hay que determinar 10 clases distintas de imágenes de muy baja resolución. El caso base en este problema sería una precisón del 10\%, por lo que se considera que un \textbf{72\%} de instancias bien clasificadas es una buen resultado.
 
 
 

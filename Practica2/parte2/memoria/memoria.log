@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.23)  8 DEC 2020 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.23)  8 DEC 2020 12:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,4 +568,122 @@ LaTeX Info: Redefining \% on input line 1.
  [2]
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 116.
-LaTeX Font Info:    Font shape `T1/phv/b
+LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
+(Font)              scaled to size 9.49997pt on input line 116.
+
+Overfull \hbox (7.91362pt too wide) in paragraph at lines 113--124
+ [] 
+ []
+
+[3]
+<Images/accuracyPM.png, id=54, 387.4475pt x 279.0425pt>
+File: Images/accuracyPM.png Graphic file (type png)
+<use Images/accuracyPM.png>
+Package pdftex.def Info: Images/accuracyPM.png  used on input line 152.
+(pdftex.def)             Requested size: 196.36734pt x 141.4284pt.
+<Images/lossPM.png, id=55, 387.4475pt x 279.0425pt>
+File: Images/lossPM.png Graphic file (type png)
+<use Images/lossPM.png>
+Package pdftex.def Info: Images/lossPM.png  used on input line 157.
+(pdftex.def)             Requested size: 196.36734pt x 141.4284pt.
+
+Overfull \hbox (18.88527pt too wide) in paragraph at lines 150--160
+ []$[]$$[]$ 
+ []
+
+<Images/accuracyPM-100.png, id=56, 387.4475pt x 279.0425pt>
+File: Images/accuracyPM-100.png Graphic file (type png)
+<use Images/accuracyPM-100.png>
+Package pdftex.def Info: Images/accuracyPM-100.png  used on input line 168.
+(pdftex.def)             Requested size: 196.36734pt x 141.4284pt.
+<Images/lossPM-100.png, id=57, 387.4475pt x 279.0425pt>
+File: Images/lossPM-100.png Graphic file (type png)
+<use Images/lossPM-100.png>
+Package pdftex.def Info: Images/lossPM-100.png  used on input line 173.
+(pdftex.def)             Requested size: 196.36734pt x 141.4284pt.
+
+Overfull \hbox (18.88527pt too wide) in paragraph at lines 166--176
+ []$[]$$[]$ 
+ []
+
+<Images/recall_clase_PM.png, id=58, 602.25pt x 372.39125pt>
+File: Images/recall_clase_PM.png Graphic file (type png)
+<use Images/recall_clase_PM.png>
+Package pdftex.def Info: Images/recall_clase_PM.png  used on input line 208.
+(pdftex.def)             Requested size: 259.6186pt x 160.53423pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./Images/accuracyPM.png> <./Images/lossPM.png> <./Images/accuracyPM-100.png
+> <./Images/lossPM-100.png>] [5 <./Images/recall_clase_PM.png>]
+<Images/accuracyCNN.png, id=83, 387.4475pt x 279.0425pt>
+File: Images/accuracyCNN.png Graphic file (type png)
+<use Images/accuracyCNN.png>
+Package pdftex.def Info: Images/accuracyCNN.png  used on input line 295.
+(pdftex.def)             Requested size: 196.36734pt x 141.4284pt.
+<Images/lossCNN.png, id=84, 387.4475pt x 279.0425pt>
+File: Images/lossCNN.png Graphic file (type png)
+<use Images/lossCNN.png>
+Package pdftex.def Info: Images/lossCNN.png  used on input line 300.
+(pdftex.def)             Requested size: 196.36734pt x 141.4284pt.
+
+Overfull \hbox (18.88527pt too wide) in paragraph at lines 293--303
+ []$[]$$[]$ 
+ []
+
+[6 <./Images/accuracyCNN.png> <./Images/lossCNN.png>]
+<Images/recall_clase_CNN.png, id=94, 602.25pt x 372.39125pt>
+File: Images/recall_clase_CNN.png Graphic file (type png)
+<use Images/recall_clase_CNN.png>
+Package pdftex.def Info: Images/recall_clase_CNN.png  used on input line 343.
+(pdftex.def)             Requested size: 259.6186pt x 160.53423pt.
+
+Overfull \hbox (24.80435pt too wide) in paragraph at lines 361--368
+ [] 
+ []
+
+[7 <./Images/recall_clase_CNN.png>]
+<Images/recall_clase_PM_CNN.png, id=105, 602.25pt x 372.39125pt>
+File: Images/recall_clase_PM_CNN.png Graphic file (type png)
+<use Images/recall_clase_PM_CNN.png>
+Package pdftex.def Info: Images/recall_clase_PM_CNN.png  used on input line 377
+.
+(pdftex.def)             Requested size: 330.42041pt x 204.31578pt.
+ 
+AED: lastpage setting LastPage
+[8 <./Images/recall_clase_PM_CNN.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 405.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 405.
+ (./memoria.aux
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 405.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 405.
+Package rerunfilecheck Info: File `memoria.out' has not changed.
+(rerunfilecheck)             Checksum: C2649DF3E11B381428F0C3748CD993EE;323.
+ ) 
+Here is how much of TeX's memory you used:
+ 9353 strings out of 483121
+ 140704 string characters out of 5964354
+ 436744 words of memory out of 5000000
+ 24174 multiletter control sequences out of 15000+600000
+ 564149 words of font info for 47 fonts, out of 8000000 for 9000
+ 40 hyphenation exceptions out of 8191
+ 42i,17n,49p,798b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
+tic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on memoria.pdf (8 pages, 245994 bytes).
+PDF statistics:
+ 152 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+
